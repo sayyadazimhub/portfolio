@@ -7,4 +7,22 @@ const api = axios.create({
     },
 });
 
+// API service methods
+export const apiService = {
+    // Projects
+    getProjects: () => api.get('/projects'),
+
+    // Skills
+    getSkills: () => api.get('/skills'),
+
+    // Experience
+    getExperience: () => api.get('/experience'),
+
+    // Education
+    getEducation: () => api.get('/education'),
+
+    // Contact
+    sendContact: (data) => api.post('/contact', data),
+};
+
 export default api;

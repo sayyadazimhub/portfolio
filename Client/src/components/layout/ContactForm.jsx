@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import api from '../utils/api';
+import { apiService } from '../../utils/api';
 import { FaPaperPlane } from 'react-icons/fa';
 
 const Contact = () => {
@@ -22,7 +22,7 @@ const Contact = () => {
         setStatus({ type: '', message: '' });
 
         try {
-            await api.post('/contact', formData);
+            await apiService.sendContact(formData);
             setStatus({ type: 'success', message: 'Message sent successfully!' });
             setFormData({ name: '', email: '', message: '' });
         } catch (error) {
@@ -42,17 +42,12 @@ const Contact = () => {
                     viewport={{ once: true }}
                     className="text-center mb-16"
                 >
-                    {/* <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Get In Touch</h2>
-                    <div className="w-20 h-1 bg-accent mx-auto rounded"></div>
-                    <p className="text-gray-400 mt-4">Have a project in mind? Let's work together.</p> */}
 
-                    <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                        <span className="bg-gradient-to-r from-white via-accent to-purple-400 bg-clip-text text-transparent">
-                            Get In Touch
-                        </span>
+
+                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-2 pb-2 border-b-2 border-accent/30 inline-block">
+                        Get In Touch
                     </h2>
-                    <div className="w-20 h-1 bg-gradient-to-r from-accent to-purple-500 mx-auto rounded-full"></div>
-                    <p className="text-gray-400 mt-4">Have a project in mind? Let's work together.</p>
+                    <p className="text-gray-400 mt-2">Have a project in mind? Let's work together</p>
                 </motion.div>
 
                 <div className="max-w-3xl mx-auto">

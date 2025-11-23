@@ -1,4 +1,4 @@
-import ContactComponent from '../components/Contact';
+import ContactComponent from '../components/layout/ContactForm';
 import { motion } from 'framer-motion';
 
 const Contact = () => {

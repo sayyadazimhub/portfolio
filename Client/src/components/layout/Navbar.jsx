@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { FaBars, FaTimes } from 'react-icons/fa';
+import { FaBars, FaTimes, FaDownload } from 'react-icons/fa';
 import { motion } from 'framer-motion';
-import logo from '../assets/logo.png';
+import logo from '../../assets/logo.png';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -48,7 +48,7 @@ const Navbar = () => {
                     </div>
 
                     <div className="hidden md:block">
-                        <div className="ml-10 flex items-baseline space-x-2">
+                        <div className="ml-10 flex items-center space-x-4">
                             {navLinks.map((link) => (
                                 <Link
                                     key={link.name}
@@ -67,6 +67,16 @@ const Navbar = () => {
                                         }`}></span>
                                 </Link>
                             ))}
+
+                            {/* Download Resume Button */}
+                            <a
+                                href="/resume.pdf"
+                                download="Sayyad_Azim_Resume.pdf"
+                                className="flex items-center gap-2 px-5 py-2.5 border border-accent text-accent rounded-xl transition-colors duration-300 hover:bg-accent hover:text-primary ml-4"
+                            >
+                                <span className="font-semibold">Resume</span>
+                                <FaDownload className="text-sm" />
+                            </a>
                         </div>
                     </div>
 
@@ -103,6 +113,17 @@ const Navbar = () => {
                                 {link.name}
                             </Link>
                         ))}
+
+                        {/* Mobile Download Resume Button */}
+                        <a
+                            href="/resume.pdf"
+                            download="Sayyad_Azim_Resume.pdf"
+                            onClick={() => setIsOpen(false)}
+                            className="flex items-center justify-center gap-2 px-4 py-3 mt-4 border border-accent text-accent rounded-lg transition-colors duration-300 hover:bg-accent hover:text-primary"
+                        >
+                            <span className="font-semibold">Download Resume</span>
+                            <FaDownload className="text-sm" />
+                        </a>
                     </div>
                 </motion.div>
             )}
@@ -111,3 +132,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+

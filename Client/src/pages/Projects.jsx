@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import api from '../utils/api';
-import ProjectCard from '../components/ProjectCard';
+import { apiService } from '../utils/api';
+import ProjectCard from '../components/layout/ProjectCard';
 
 const Projects = () => {
     const [projects, setProjects] = useState([]);
@@ -11,7 +11,7 @@ const Projects = () => {
     useEffect(() => {
         const fetchProjects = async () => {
             try {
-                const res = await api.get('/projects');
+                const res = await apiService.getProjects();
                 setProjects(res.data);
                 setLoading(false);
             } catch (err) {
@@ -38,17 +38,11 @@ const Projects = () => {
                 transition={{ duration: 0.6 }}
                 className="text-center mb-16 pt-20" // pt-10 before
             >
-                {/* <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">My Projects</h1>
-                <p className="text-gray-400 max-w-2xl mx-auto">
-                    A collection of my work, ranging from web applications to cloud integrations.
-                </p> */}
-                <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                    <span className="bg-gradient-to-r from-white via-accent to-purple-400 bg-clip-text text-transparent">
-                        My Projects
-                    </span>
+
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-2 pb-2 border-b-2 border-accent/30 inline-block">
+                    My Projects
                 </h2>
-                <div className="w-20 h-1 bg-gradient-to-r from-accent to-purple-500 mx-auto rounded-full"></div>
-                <p className="text-gray-400 mt-4">A collection of my work, ranging from web applications to cloud integrations.</p>
+                <p className="text-gray-400 mt-2">A collection of my work, ranging from web applications to cloud integrations</p>
             </motion.div>
 
             {loading ? (

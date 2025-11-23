@@ -16,7 +16,7 @@ const Footer = () => {
     ];
 
     return (
-        <footer className="relative bg-gradient-to-b from-secondary/50 to-primary border-t border-accent/20 mt-auto overflow-hidden">
+        <footer className="relative z-50 bg-gradient-to-r from-primary/95 via-primary/90 to-primary/95 backdrop-blur-xl border-b border-accent/20 shadow-lg shadow-accent/5 mt-auto overflow-hidden">
             {/* Background gradient effect */}
             <div className="absolute inset-0 bg-gradient-to-r from-accent/5 via-purple-500/5 to-accent/5"></div>
 
@@ -24,9 +24,7 @@ const Footer = () => {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
                     {/* About Section */}
                     <div className="text-center md:text-left">
-                        <h3 className="text-xl font-bold bg-gradient-to-r from-white via-accent to-purple-400 bg-clip-text text-transparent mb-3">
-                            Portfolio
-                        </h3>
+                        <h3 className="text-xl font-semibold text-white mb-3">Portfolio</h3>
                         <p className="text-gray-400 text-sm leading-relaxed">
                             Building amazing web experiences with modern technologies and creative solutions.
                         </p>
@@ -62,10 +60,10 @@ const Footer = () => {
                                     aria-label={social.label}
                                 >
                                     {/* Glow effect */}
-                                    <div className="absolute inset-0 bg-accent/30 rounded-lg blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                    {/* <div className="absolute inset-0 bg-accent/30 rounded-lg blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div> */}
 
                                     {/* Icon container */}
-                                    <div className="relative p-3 bg-gradient-to-br from-accent/10 to-purple-500/10 rounded-lg border border-accent/30 group-hover:border-accent/60 transition-all duration-300 group-hover:scale-110">
+                                    <div className="relative p-3 bg-gradient-to-br from-accent/10 to-purple-500/10 rounded-lg border border-accent/30 group-hover:border-accent/60 transition-all duration-300 ">
                                         <social.icon className="text-xl text-gray-400 group-hover:text-accent transition-colors duration-300" />
                                     </div>
                                 </a>

@@ -4,4 +4,12 @@
 
 body {
   @apply bg-primary text-white;
+  cursor: none;
+}
+
+a,
+button,
+input,
+textarea {
+  cursor: none;
 }

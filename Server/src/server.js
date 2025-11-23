@@ -6,6 +6,7 @@ import contactRoutes from './routes/contactRoutes.js';
 import projectRoutes from './routes/projectRoutes.js';
 import skillRoutes from './routes/skillRoutes.js';
 import experienceRoutes from './routes/experienceRoutes.js';
+import educationRoutes from './routes/educationRoutes.js';
 
 dotenv.config();
 
@@ -17,7 +18,7 @@ const app = express();
 // Middleware
 app.use(cors({
     origin: [
-        // 'http://localhost:5173', 
+        'http://localhost:5173',
         process.env.FRONTEND_URL],
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true
@@ -29,6 +30,7 @@ app.use('/api/contact', contactRoutes);
 app.use('/api/projects', projectRoutes);
 app.use('/api/skills', skillRoutes);
 app.use('/api/experience', experienceRoutes);
+app.use('/api/education', educationRoutes);
 
 // Default Route
 app.get('/', (req, res) => {

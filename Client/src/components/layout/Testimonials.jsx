@@ -39,21 +39,12 @@ const Testimonials = () => {
                     viewport={{ once: true }}
                     className="text-center mb-16"
                 >
-                    {/* <h2 className="text-4xl md:text-5xl font-bold mb-4">
-                        <span className="bg-gradient-to-r from-white via-accent to-purple-400 bg-clip-text text-transparent">
-                            What People Say
-                        </span>
-                    </h2>
-                    <div className="w-24 h-1.5 bg-gradient-to-r from-accent to-purple-500 mx-auto rounded-full"></div>
-                    <p className="text-gray-400 mt-4 text-lg">Don't just take my word for it</p> */}
 
-                    <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                        <span className="bg-gradient-to-r from-white via-accent to-purple-400 bg-clip-text text-transparent">
-                            What People Say
-                        </span>
+
+                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-2 pb-2 border-b-2 border-accent/30 inline-block">
+                        What People Say
                     </h2>
-                    <div className="w-20 h-1 bg-gradient-to-r from-accent to-purple-500 mx-auto rounded-full"></div>
-                    <p className="text-gray-400 mt-4">Don't just take my word for it.</p>
+                    <p className="text-gray-400 mt-2">Don't just take my word for it</p>
                 </motion.div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

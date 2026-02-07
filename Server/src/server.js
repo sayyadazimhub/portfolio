@@ -25,6 +25,11 @@ app.use(cors({
 }));
 app.use(express.json());
 
+// Default Route
+app.get('/', (req, res) => {
+    res.json({ message: 'Portfolio API is running...' });
+});
+
 // Routes
 app.use('/api/contact', contactRoutes);
 app.use('/api/projects', projectRoutes);
@@ -32,10 +37,6 @@ app.use('/api/skills', skillRoutes);
 app.use('/api/experience', experienceRoutes);
 app.use('/api/education', educationRoutes);
 
-// Default Route
-app.get('/', (req, res) => {
-    res.json({ message: 'Portfolio API is running...' });
-});
 
 const PORT = process.env.PORT || 5000;
 

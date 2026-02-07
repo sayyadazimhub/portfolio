@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { FaGraduationCap, FaEnvelope, FaDownload } from 'react-icons/fa';
-import image from '../../assets/image.jpg';
+import image from '../../assets/image.jpeg';
 
 const About = () => {
     return (

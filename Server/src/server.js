@@ -34,11 +34,15 @@ app.use('/api/education', educationRoutes);
 
 // Default Route
 app.get('/', (req, res) => {
-    res.send('Portfolio API is running...');
+    res.json({ message: 'Portfolio API is running...' });
 });
 
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-});
+// I use vercel for deployment so I don't need to run the server locally
+// app.listen(PORT, () => {
+//     console.log(`Server running on port ${PORT}`);
+// });
+
+// export default app used for vercel deployment
+export default app;

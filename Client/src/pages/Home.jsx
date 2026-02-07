@@ -1,5 +1,5 @@
 import Hero from '../components/layout/Hero';
-import Testimonials from '../components/layout/Testimonials';
+// import Testimonials from '../components/layout/Testimonials';
 import { motion } from 'framer-motion';
 
 const Home = () => {
@@ -11,7 +11,7 @@ const Home = () => {
             transition={{ duration: 0.5 }}
         >
             <Hero />
-            <Testimonials />
+            {/* <Testimonials /> */}
         </motion.div>
     );
 };

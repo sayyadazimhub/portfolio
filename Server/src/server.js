@@ -1,4 +1,5 @@
 import express from 'express';
+import serverless from "serverless-http";
 import cors from 'cors';
 import dotenv from 'dotenv';
 import connectDB from './config/db.js';
@@ -46,4 +47,4 @@ const PORT = process.env.PORT || 5000;
 // });
 
 // export default app used for vercel deployment
-export default app;
+export default serverless(app);

@@ -1,5 +1,5 @@
 import express from 'express';
-import serverless from "serverless-http";
+// import serverless from "serverless-http";
 import cors from 'cors';
 import dotenv from 'dotenv';
 import connectDB from './config/db.js';
@@ -42,9 +42,9 @@ app.use('/api/education', educationRoutes);
 const PORT = process.env.PORT || 5000;
 
 // I use vercel for deployment so I don't need to run the server locally
-// app.listen(PORT, () => {
-//     console.log(`Server running on port ${PORT}`);
-// });
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+});
 
 // export default app used for vercel deployment
-export default serverless(app);
+// export default serverless(app);

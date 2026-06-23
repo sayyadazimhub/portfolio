@@ -6,7 +6,7 @@ const useSocket = () => {
   const [isConnected, setIsConnected] = useState(false);
 
   useEffect(() => {
-    const socketURL = import.meta.env.VITE_PORTFOLIO_SERVER_URL || 'http://localhost:5000';
+    const socketURL = import.meta.env.VITE_PORTFOLIO_SERVER_URL || "https://portfolio-server-io.vercel.app" || 'http://localhost:5000';
     
     console.log('🔌 Connecting to Socket.IO at:', socketURL);
     

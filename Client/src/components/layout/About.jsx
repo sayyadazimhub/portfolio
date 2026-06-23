@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FaDownload, FaEnvelope, FaRocket, FaCode, FaBriefcase, FaGraduationCap } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import imageFallback from '../../assets/image.jpg';
+import imageFallback from '../../assets/image.jpeg';
 import { apiService } from '../../utils/api';
 
 const About = () => {

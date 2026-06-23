@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import logo from '../../assets/logo.png'
+import { useAuth } from '../../context/AuthContext'
 import { 
   FiGrid, 
   FiUser, 
+  FiUsers,
   FiBook, 
   FiBriefcase, 
   FiFileText, 
@@ -20,6 +22,7 @@ import { FaTrophy } from 'react-icons/fa'
 
 const links = [
   { label: 'Dashboard', path: '/dashboard', icon: FiGrid },
+  { label: 'Users', path: '/users', icon: FiUsers },
   { label: 'About Me', path: '/about-me', icon: FiUser },
   { label: 'Education', path: '/education', icon: FiBook },
   { label: 'Work Experience', path: '/work-experience', icon: FiBriefcase },
@@ -40,6 +43,7 @@ function getLinkClass(isActive) {
 
 export default function Sidebar() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const { logout } = useAuth()
 
   return (
     <>
@@ -98,14 +102,16 @@ export default function Sidebar() {
         </nav>
 
         <div className="p-4 border-t border-slate-200">
-          <NavLink
-            to="/"
-            onClick={() => setMenuOpen(false)}
-            className="flex items-center gap-3 rounded-xl px-4 py-2.5 text-sm text-slate-600 font-medium transition-all duration-300 hover:bg-red-50 hover:text-red-600 hover:translate-x-1"
+          <button
+            onClick={() => {
+              setMenuOpen(false)
+              logout()
+            }}
+            className="flex w-full items-center gap-3 rounded-xl px-4 py-2.5 text-sm text-slate-600 font-medium transition-all duration-300 hover:bg-red-50 hover:text-red-600 hover:translate-x-1"
           >
             <FiLogOut size={18} className="shrink-0" />
             Sign out
-          </NavLink>
+          </button>
         </div>
       </aside>
     </>

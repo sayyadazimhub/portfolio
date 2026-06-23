@@ -1,8 +1,10 @@
-
 import { Route, Routes } from 'react-router-dom'
+import { AuthProvider } from './context/AuthContext'
+import ProtectedRoute from './components/common/ProtectedRoute'
 import AppLayout from './layout/AppLayout'
 import Dashboard from './pages/Dashboard'
 import Login from './pages/auth/Login'
+import Users from './pages/Users'
 import AboutMe from './pages/AboutMe'
 import Education from './pages/Education'
 import WorkExperience from './pages/WorkExperience'
@@ -20,28 +22,37 @@ import PageNotFound from './pages/PageNotFound'
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Login />} />
+    <AuthProvider>
+      <Routes>
+        <Route path="/" element={<Login />} />
 
-      <Route element={<AppLayout />}>
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/about-me" element={<AboutMe />} />
-        <Route path="/education" element={<Education />} />
-        <Route path="/work-experience" element={<WorkExperience />} />
-        <Route path="/resume" element={<Resume />} />
-        <Route path="/skills" element={<Skills />} />
-        <Route path="/projects" element={<Projects />} />
-        <Route path="/projects/:id" element={<ProjectDetail />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/contact/:id" element={<ContactDetail />} />
-        <Route path="/testimonials" element={<Testimonials />} />
-        <Route path="/testimonials/:id" element={<TestimonialDetail />} />
-        <Route path="/achievements" element={<Achievements />} />
-        <Route path="/certificates" element={<Certificates />} />
-      </Route>
+        <Route 
+          element={
+            <ProtectedRoute>
+              <AppLayout />
+            </ProtectedRoute>
+          }
+        >
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/users" element={<Users />} />
+          <Route path="/about-me" element={<AboutMe />} />
+          <Route path="/education" element={<Education />} />
+          <Route path="/work-experience" element={<WorkExperience />} />
+          <Route path="/resume" element={<Resume />} />
+          <Route path="/skills" element={<Skills />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/projects/:id" element={<ProjectDetail />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/contact/:id" element={<ContactDetail />} />
+          <Route path="/testimonials" element={<Testimonials />} />
+          <Route path="/testimonials/:id" element={<TestimonialDetail />} />
+          <Route path="/achievements" element={<Achievements />} />
+          <Route path="/certificates" element={<Certificates />} />
+        </Route>
 
-      <Route path="*" element={<PageNotFound />} />
-    </Routes>
+        <Route path="*" element={<PageNotFound />} />
+      </Routes>
+    </AuthProvider>
   )
 }
 

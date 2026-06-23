@@ -16,6 +16,7 @@ import aboutMeRoutes from './routes/aboutMeRoutes.js';
 import achievementRoutes from './routes/achievementRoutes.js';
 import certificateRoutes from './routes/certificateRoutes.js';
 import dashboardRoutes from './routes/dashboardRoutes.js';
+import authRoutes from './routes/authRoutes.js';
 
 // Connect to Database
 connectDB();
@@ -54,7 +55,7 @@ app.use('/api/aboutme', aboutMeRoutes);
 app.use('/api/achievements', achievementRoutes);
 app.use('/api/certificates', certificateRoutes);
 app.use('/api/dashboard', dashboardRoutes);
-
+app.use('/api/auth', authRoutes);
 
 const PORT = process.env.PORT || 5000;
 

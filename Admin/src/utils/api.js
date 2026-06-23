@@ -4,8 +4,27 @@ const api = axios.create({
     baseURL: import.meta.env.VITE_PORTFOLIO_SERVER_API_URL || 'http://localhost:5000/api',
 });
 
+// Add a request interceptor to inject the token
+api.interceptors.request.use((config) => {
+    const token = localStorage.getItem('token');
+    if (token) {
+        config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+}, (error) => {
+    return Promise.reject(error);
+});
+
 // API service methods
 export const apiService = {
+    // Auth
+    login: (credentials) => api.post('/auth/login', credentials),
+    register: (userData) => api.post('/auth/register', userData),
+    getMe: () => api.get('/auth/me'),
+    getUsers: () => api.get('/auth/users'),
+    updateUser: (id, data) => api.put(`/auth/users/${id}`, data),
+    deleteUser: (id) => api.delete(`/auth/users/${id}`),
+
     // Projects
     getProjects: () => api.get('/projects'),
     getProjectById: (id) => api.get(`/projects/${id}`),

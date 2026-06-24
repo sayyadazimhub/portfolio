@@ -43,49 +43,46 @@ export const submitContact = async (req, res) => {
             console.error('❌ Socket.IO notification failed:', socketError.message);
         }
 
-        // 1. Send HTML email notification to Admin
-        const adminEmailHtml = getAdminNotificationTemplate({ name, email, subject, message });
-        const adminEmailResult = await sendEmail({
-            to: process.env.EMAIL_USER,
-            subject: subject ? `New Inquiry: ${subject}` : 'New Portfolio Contact Submission',
-            text: `New contact form submission from ${name} (${email}):\n\nSubject: ${subject || 'No Subject'}\nMessage: ${message}`,
-            html: adminEmailHtml,
-        });
-
-        // 2. Send HTML auto-reply confirmation email to Visitor
-        const visitorEmailHtml = getVisitorConfirmationTemplate({
-            name,
-            subject,
-            message,
-            frontendUrl: process.env.FRONTEND_URL,
-        });
-        const visitorEmailResult = await sendEmail({
-            to: email,
-            subject: subject ? `Inquiry Received: ${subject}` : 'Thank you for reaching out!',
-            text: `Hello ${name},\n\nThank you for getting in touch! I have successfully received your message: "${subject || 'No Subject'}" and will get back to you shortly.\n\nBest regards,\nSayyad Azim`,
-            html: visitorEmailHtml,
-        });
-
-        let emailError = null;
-        if (!adminEmailResult.success) {
-            console.error('Contact saved but admin email notification failed:', adminEmailResult.error);
-            emailError = adminEmailResult.error;
-        }
-        if (!visitorEmailResult.success) {
-            console.error('Contact saved but visitor auto-reply email failed:', visitorEmailResult.error);
-            if (!emailError) emailError = visitorEmailResult.error;
-        }
-
-        if (emailError) {
-            return res.status(201).json({
-                success: true,
-                message: 'Contact form submitted successfully, but some email notifications failed.',
-                data: contact,
-                emailError,
-            });
-        }
-
+        // Return immediate response to the client so it doesn't hang
         res.status(201).json({ success: true, message: 'Contact form submitted successfully', data: contact });
+
+        // Process emails asynchronously in the background
+        (async () => {
+            try {
+                // 1. Send HTML email notification to Admin
+                const adminEmailHtml = getAdminNotificationTemplate({ name, email, subject, message });
+                const adminEmailResult = await sendEmail({
+                    to: process.env.EMAIL_USER,
+                    subject: subject ? `New Inquiry: ${subject}` : 'New Portfolio Contact Submission',
+                    text: `New contact form submission from ${name} (${email}):\n\nSubject: ${subject || 'No Subject'}\nMessage: ${message}`,
+                    html: adminEmailHtml,
+                });
+
+                // 2. Send HTML auto-reply confirmation email to Visitor
+                const visitorEmailHtml = getVisitorConfirmationTemplate({
+                    name,
+                    subject,
+                    message,
+                    frontendUrl: process.env.FRONTEND_URL,
+                });
+                const visitorEmailResult = await sendEmail({
+                    to: email,
+                    subject: subject ? `Inquiry Received: ${subject}` : 'Thank you for reaching out!',
+                    text: `Hello ${name},\n\nThank you for getting in touch! I have successfully received your message: "${subject || 'No Subject'}" and will get back to you shortly.\n\nBest regards,\nSayyad Azim`,
+                    html: visitorEmailHtml,
+                });
+
+                if (!adminEmailResult.success) {
+                    console.error('Contact saved but admin email notification failed:', adminEmailResult.error);
+                }
+                if (!visitorEmailResult.success) {
+                    console.error('Contact saved but visitor auto-reply email failed:', visitorEmailResult.error);
+                }
+            } catch (backgroundError) {
+                console.error('Error during background email processing:', backgroundError);
+            }
+        })();
+
     } catch (error) {
         console.error(error);
         if (error.name === 'ValidationError') {

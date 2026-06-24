@@ -59,27 +59,6 @@ const Hero = () => {
 
     return (
         <section id="hero" className="flex items-center justify-center bg-white relative overflow-hidden text-black pt-10 pb-10">
-            {/* Background elements */}
-            {/* Animated Gradient Orbs */}
-            <motion.div
-                animate={{
-                    scale: [1, 1.2, 1],
-                    opacity: [0.3, 0.5, 0.3],
-                    rotate: [0, 90, 0]
-                }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-indigo-300/30 rounded-full blur-[120px] pointer-events-none"
-            />
-            <motion.div
-                animate={{
-                    scale: [1, 1.3, 1],
-                    opacity: [0.2, 0.4, 0.2],
-                    rotate: [0, -90, 0]
-                }}
-                transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-                className="absolute bottom-[-10%] right-[-10%] w-[600px] h-[600px] bg-cyan-300/30 rounded-full blur-[120px] pointer-events-none"
-            />
-
             {/* Subtle Grid Mask */}
             <div className="absolute inset-0 bg-[linear-gradient(to_right,#f1f5f9_1px,transparent_1px),linear-gradient(to_bottom,#f1f5f9_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none"></div>
 

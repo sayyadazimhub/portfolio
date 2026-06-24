@@ -32,8 +32,10 @@ app.use(cors({
     origin: [
         'http://localhost:5173',
         'http://localhost:5174',
+        'https://azim-sayyad-portfolio.vercel.app',
         'https://portfolio-admin-owiw.onrender.com',
-        process.env.FRONTEND_URL
+        process.env.FRONTEND_URL,
+        process.env.ADMIN_FRONTEND_URL,
     ],
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true

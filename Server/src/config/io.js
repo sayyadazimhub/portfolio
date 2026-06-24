@@ -8,10 +8,10 @@ export const initSocket = (server) => {
       origin: [
         'http://localhost:5173',  // Client
         'http://localhost:5174',  // Admin Dashboard
+        'https://azim-sayyad-portfolio.vercel.app', // Client
         'https://portfolio-admin-owiw.onrender.com', // Admin Dashboard Render
-        'https://portfolio-admin-six-delta.vercel.app', // Admin Dashboard Render
-        'https://admin-azim-portfolio.vercel.app', // Admin Dashboard Render
         process.env.FRONTEND_URL,
+        process.env.ADMIN_FRONTEND_URL,
       ].filter(Boolean),
       methods: ['GET', 'POST'],
       credentials: true,

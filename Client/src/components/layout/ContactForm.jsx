@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
 import { apiService } from '../../utils/api';
 import { FaPaperPlane, FaEnvelope, FaPhoneAlt, FaMapMarkerAlt, FaCode } from 'react-icons/fa';
 import toast from 'react-hot-toast';
@@ -67,13 +66,7 @@ const ContactForm = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 lg:items-stretch">
 
                     {/* Left Column: Info */}
-                    <motion.div
-                        initial={{ opacity: 0, x: -30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.8, ease: "easeOut" }}
-                        viewport={{ once: true }}
-                        className="flex flex-col justify-center items-center lg:items-start text-center lg:text-left"
-                    >
+                    <div className="flex flex-col justify-center items-center lg:items-start text-center lg:text-left" >
                         <div>
                             <div className="inline-flex items-center gap-3 mb-3 md:mb-4 px-4 py-2 bg-white rounded-full border border-slate-100 shadow-sm">
                                 <span className="w-2 h-2 rounded-full animate-pulse bg-indigo-600"></span>
@@ -129,16 +122,10 @@ const ContactForm = () => {
                                 </div>
                             </div>
                         </div>
-                    </motion.div>
+                    </div>
 
                     {/* Right Column: Form */}
-                    <motion.div
-                        initial={{ opacity: 0, x: 30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-                        viewport={{ once: true }}
-                        className="h-full flex flex-col"
-                    >
+                    <div className="h-full flex flex-col" >
                         <form
                             onSubmit={handleSubmit}
                             className="bg-white p-6 sm:p-10 rounded-[2rem] border border-slate-100 shadow-xl relative overflow-hidden flex flex-col h-full"
@@ -212,7 +199,7 @@ const ContactForm = () => {
                                 {!loading && <FaPaperPlane size={12} className="relative z-10 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />}
                             </button>
                         </form>
-                    </motion.div>
+                    </div>
                 </div>
             </div>
         </section>

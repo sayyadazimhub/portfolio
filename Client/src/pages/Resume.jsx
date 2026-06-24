@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
 import { apiService } from '../utils/api';
 import { FaDownload, FaFilePdf, FaChevronLeft, FaChevronRight, FaSearchPlus, FaSearchMinus } from 'react-icons/fa';
 import { Document, Page, pdfjs } from 'react-pdf';
@@ -68,13 +67,7 @@ const Resume = () => {
     }, []);
 
     return (
-        <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
-            className="w-full bg-slate-50 pt-10 pb-10 relative overflow-hidden"
-        >
+        <div className="w-full bg-slate-50 pt-10 pb-10 relative overflow-hidden">
             {/* Soft background glow */}
             <div className="absolute top-0 inset-x-0 h-[500px] bg-gradient-to-b from-indigo-50/50 to-transparent pointer-events-none"></div>
 
@@ -82,12 +75,7 @@ const Resume = () => {
                 <div className="flex flex-col lg:flex-row gap-4 lg:gap-12 items-center">
 
                     {/* Left Sidebar Info */}
-                    <motion.div
-                        initial={{ opacity: 0, x: -30 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.6 }}
-                        className="lg:w-1/3 w-full flex flex-col justify-center items-center lg:items-start text-center lg:text-left"
-                    >
+                    <div className="lg:w-1/3 w-full flex flex-col justify-center items-center lg:items-start text-center lg:text-left">
                         <div>
                             <div className="inline-flex items-center gap-3 mb-3 md:mb-5 px-4 py-2 bg-white rounded-full border border-slate-100 shadow-sm">
                                 <span className="w-2 h-2 rounded-full animate-pulse bg-indigo-500"></span>
@@ -143,7 +131,7 @@ const Resume = () => {
                                 </a>
                             </div>
                         )}
-                    </motion.div>
+                    </div>
 
                     {/* Right Side PDF Viewer */}
                     <div className="lg:w-2/3 w-full">
@@ -199,12 +187,7 @@ const Resume = () => {
                                 </div>
                             </div>
                         ) : (
-                            <motion.div
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.6 }}
-                                className="w-full h-[78vh] bg-slate-100 rounded-[2rem] border border-slate-200 shadow-2xl shadow-slate-200/50 overflow-hidden flex flex-col"
-                            >
+                            <div className="w-full h-[78vh] bg-slate-100 rounded-[2rem] border border-slate-200 shadow-2xl shadow-slate-200/50 overflow-hidden flex flex-col" >
                                 {/* Toolbar */}
                                 <div className="bg-white border-b border-slate-200 px-6 py-4 flex-shrink-0 z-10 shadow-sm">
                                     <div className="flex items-center justify-between">
@@ -303,13 +286,13 @@ const Resume = () => {
                                         </button>
                                     </div>
                                 </div>
-                            </motion.div>
+                            </div>
                         )}
                     </div>
 
                 </div>
             </div>
-        </motion.div>
+        </div>
     );
 };
 

@@ -1,13 +1,8 @@
-import { motion } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt, FaArrowRight } from 'react-icons/fa';
 
 const ProjectCard = ({ project, index, onClick }) => {
     return (
-        <motion.div
-            initial={{ opacity: 0, y: 0 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.95 }}
-            transition={{ duration: 0.5, delay: index * 0.05, ease: "easeOut" }}
+        <div
             className="group flex flex-col h-full bg-white rounded-[2rem] border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] hover:border-indigo-100 hover:-translate-y-1 transition-all duration-500 overflow-hidden cursor-pointer"
             onClick={onClick}
         >
@@ -92,7 +87,7 @@ const ProjectCard = ({ project, index, onClick }) => {
                     </div>
                 </div>
             </div>
-        </motion.div>
+        </div>
     );
 };
 

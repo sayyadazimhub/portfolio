@@ -10,30 +10,19 @@ const FooterCTA = () => {
             
             <div className="relative z-10 max-w-7xl mx-auto w-full flex flex-col md:flex-row items-center justify-between gap-4 md:gap-12 px-4 sm:px-6 lg:px-8">
                 <div className="text-center md:text-left flex-1 w-full">
-                    <motion.h2 
-                        initial={{ opacity: 0, y: 10 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
+                    <h2 
                         className="text-2xl sm:text-3xl md:text-4xl font-black text-black tracking-tight font-serif mb-3 leading-[1.1]"
                     >
                         Have a project in <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-cyan-500">mind?</span>
-                    </motion.h2>
-                    <motion.p 
-                        initial={{ opacity: 0, y: 10 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.1 }}
+                    </h2>
+                    <p 
                         className="text-slate-800 text-sm md:text-base font-medium leading-relaxed max-w-lg md:max-w-xl mx-auto md:mx-0"
                     >
                         I'm currently available for freelance work and full-time opportunities. Let's bring your ideas to life.
-                    </motion.p>
+                    </p>
                 </div>
                 
-                <motion.div 
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.2 }}
+                <div 
                     className="flex flex-col-reverse md:flex-row items-center gap-4 sm:gap-5 shrink-0 w-full md:w-auto mt-2 md:mt-0"
                 >
                     <div className="flex items-center justify-center w-full sm:w-auto gap-3">
@@ -54,7 +43,7 @@ const FooterCTA = () => {
                         <span className="relative z-10">Say Hello</span>
                         <FaEnvelope className="relative z-10 w-3.5 h-3.5 group-hover:rotate-12 transition-transform duration-300" />
                     </Link>
-                </motion.div>
+                </div>
             </div>
         </section>
     );

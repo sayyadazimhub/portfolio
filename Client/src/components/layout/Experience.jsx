@@ -50,26 +50,17 @@ const Experience = () => {
 
                 {/* Elegant Centered Header */}
                 <div className="text-center max-w-3xl mx-auto">
-                    <motion.h2
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.1 }}
+                    <h2
                         className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-black tracking-tight font-serif mb-4"
                     >
                         Professional <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">Journey</span>
-                    </motion.h2>
+                    </h2>
 
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.2 }}
-                    >
+                    <div>
                         <p className="text-sm md:text-base text-slate-800 font-light leading-relaxed max-w-2xl mx-auto">
                             A timeline of my professional experience, highlighting key roles, responsibilities, and the impact I've driven across different organizations.
                         </p>
-                    </motion.div>
+                    </div>
                 </div>
 
                 {loading ? (
@@ -176,13 +167,8 @@ const Experience = () => {
                                     </button>
                                 )}
 
-                                <AnimatePresence mode="wait">
-                                    <motion.div
+                                    <div
                                         key={activeIndex}
-                                        initial={{ opacity: 0, x: -20 }}
-                                        animate={{ opacity: 1, x: 0 }}
-                                        exit={{ opacity: 0, x: 20 }}
-                                        transition={{ duration: 0.3 }}
                                         className="flex flex-col h-full"
                                     >
                                         <div className="flex justify-between items-start mb-4">
@@ -229,15 +215,12 @@ const Experience = () => {
                                                 {activeExp.description}
                                             </p>
                                         )}
-                                    </motion.div>
-                                </AnimatePresence>
+                                    </div>
                             </div>
 
                             {/* Next Experience Preview (Span 1) */}
                             {nextExp ? (
-                                <motion.div
-                                    initial={{ opacity: 0 }}
-                                    animate={{ opacity: 1 }}
+                                <div
                                     key={`preview-${activeIndex}`}
                                     onClick={() => {
                                         setActiveIndex(activeIndex + 1);
@@ -271,11 +254,9 @@ const Experience = () => {
                                             Click to advance
                                         </div>
                                     </div>
-                                </motion.div>
+                                </div>
                             ) : (
-                                <motion.div
-                                    initial={{ opacity: 0 }}
-                                    animate={{ opacity: 1 }}
+                                <div
                                     key="preview-end"
                                     className="hidden md:flex md:col-span-1 border border-slate-300 p-4 md:p-8 rounded-2xl md:rounded-3xl flex-col justify-center relative overflow-hidden h-full"
                                 >
@@ -290,7 +271,7 @@ const Experience = () => {
                                             These are all my documented professional experiences so far.
                                         </p>
                                     </div>
-                                </motion.div>
+                                </div>
                             )}
                         </div>
                     </div>

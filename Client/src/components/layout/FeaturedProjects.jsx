@@ -51,30 +51,19 @@ const FeaturedProjects = () => {
                 {/* Header Section */}
                 <div className="flex flex-row items-end justify-between gap-4">
                     <div className="flex-1 min-w-0">
-                        <motion.h2
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
+                        <h2
                             className="font-mono text-[10px] sm:text-xs uppercase tracking-[0.2em] mb-2 sm:mb-3 text-indigo-600 font-bold flex items-center gap-2"
                         >
                             {/* <span className="w-6 h-0.5 bg-indigo-600 shrink-0"></span> */}
                             <span className="truncate">Featured Work</span>
-                        </motion.h2>
-                        <motion.h3
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.1 }}
+                        </h2>
+                        <h3
                             className="text-2xl sm:text-4xl lg:text-5xl font-black text-black font-serif leading-[1.1] tracking-tight truncate"
                         >
                             Curated <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-cyan-500">Archive.</span>
-                        </motion.h3>
+                        </h3>
                     </div>
-                    <motion.div
-                        initial={{ opacity: 0, x: 20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.2 }}
+                    <div
                         className="flex shrink-0 mb-1 sm:mb-0"
                     >
                         <button onClick={() => navigate('/projects')} className="group inline-flex items-center justify-center gap-2 sm:gap-3 bg-white text-black border-2 border-black px-5 py-3 sm:px-6 sm:py-3.5 rounded-lg font-mono text-[10px] sm:text-xs uppercase tracking-[0.10em] font-bold hover:border-indigo-300 hover:text-indigo-600 hover:bg-indigo-50 transition-all duration-300 cursor-pointer">
@@ -82,7 +71,7 @@ const FeaturedProjects = () => {
                             <span className="sm:hidden">View All</span>
                             <FaArrowRight className="text-black group-hover:text-indigo-600 group-hover:translate-x-1 transition-all duration-300" />
                         </button>
-                    </motion.div>
+                    </div>
                 </div>
 
                 {/* Loading Skeleton */}

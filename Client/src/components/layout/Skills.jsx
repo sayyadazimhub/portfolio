@@ -65,34 +65,23 @@ const Skills = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="flex flex-col md:flex-row md:items-end justify-between gap-2 mb-12">
                     <div className="flex-1">
-                        <motion.h2 
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
+                        <h2 
                             className="font-mono text-[10px] sm:text-xs uppercase tracking-[0.2em] mb-2 sm:mb-3 text-indigo-600 font-bold flex items-center gap-2"
                         >
                             {/* <span className="w-6 h-0.5 bg-indigo-600"></span> */}
                             My Expertise
-                        </motion.h2>
-                        <motion.h3 
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.1 }}
+                        </h2>
+                        <h3 
                             className="text-3xl sm:text-4xl lg:text-5xl font-black text-black font-serif leading-[1.1] tracking-tight"
                         >
                             Technical <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-cyan-500">Arsenal.</span>
-                        </motion.h3>
+                        </h3>
                     </div>
-                    <motion.p 
-                        initial={{ opacity: 0, x: 20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.2 }}
+                    <p 
                         className="text-slate-800 max-w-md text-sm sm:text-base leading-relaxed text-justify md:text-left"
                     >
                         A comprehensive overview of the technologies, frameworks, and tools I use to bring ideas to life.
-                    </motion.p>
+                    </p>
                 </div>
 
                 {loading ? (
@@ -134,12 +123,8 @@ const Skills = () => {
                                                 const colorClass = !isImageUrl ? (iconColors[skill.icon] || defaultColor) : defaultColor;
                                                 
                                                 return (
-                                                <motion.div 
+                                                <div 
                                                     key={skill._id || idx}
-                                                    initial={{ opacity: 0, scale: 0.95 }}
-                                                    whileInView={{ opacity: 1, scale: 1 }}
-                                                    viewport={{ once: true }}
-                                                    transition={{ duration: 0.3, delay: (idx % 8) * 0.05 }}
                                                     className="bg-white rounded-xl p-3 sm:p-4 border border-slate-100 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 group"
                                                 >
                                                     <div className="flex items-center gap-3">
@@ -154,7 +139,7 @@ const Skills = () => {
                                                             {skill.name}
                                                         </span>
                                                     </div>
-                                                </motion.div>
+                                                </div>
                                             )})}
                                         </div>
                                     </div>

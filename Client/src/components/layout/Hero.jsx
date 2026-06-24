@@ -87,15 +87,11 @@ const Hero = () => {
                 <div className="flex flex-col lg:flex-row items-center justify-between gap-10">
 
                     {/* Left Column: Text Content */}
-                    <motion.div
-                        variants={containerVariants}
-                        initial="hidden"
-                        animate="visible"
+                    <div
                         className="flex flex-col items-center text-center lg:items-start lg:text-left lg:w-1/2 w-full"
                     >
                         {/* Status Pill */}
-                        <motion.div
-                            variants={itemVariants}
+                        <div
                             className="inline-flex items-center gap-2 bg-white/50 backdrop-blur-md border border-slate-200/50 shadow-sm rounded-full px-4 py-2 mb-6 sm:mb-8 hover:bg-white hover:shadow-md transition-all duration-300 cursor-default"
                         >
                             <span className="relative flex h-2.5 w-2.5">
@@ -103,20 +99,18 @@ const Hero = () => {
                                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-indigo-500"></span>
                             </span>
                             <span className="font-mono text-[10px] sm:text-xs uppercase tracking-[0.2em] text-slate-800 font-bold">Available for Work</span>
-                        </motion.div>
+                        </div>
 
                         {/* Subtitle */}
-                        <motion.h2
-                            variants={itemVariants}
+                        <h2
                             className="font-mono text-xs sm:text-sm uppercase tracking-[0.2em] mb-4 text-indigo-600 font-bold flex items-center gap-3"
                         >
                             <span className="hidden lg:block w-8 h-0.5 bg-indigo-600"></span>
                             Hello, I'm
-                        </motion.h2>
+                        </h2>
 
                         {/* Main Heading */}
-                        <motion.h1
-                            variants={itemVariants}
+                        <h1
                             className="font-serif text-5xl sm:text-7xl lg:text-[5.5rem] font-black mb-6 leading-[1.05] tracking-tight text-black"
                         >
                             Sayyad <br className="hidden sm:block lg:hidden" />
@@ -127,11 +121,10 @@ const Hero = () => {
                                     <path d="M0,10 Q50,20 100,10" fill="currentColor" />
                                 </svg>
                             </span>
-                        </motion.h1>
+                        </h1>
 
                         {/* Skill/Role Banner */}
-                        <motion.div
-                            variants={itemVariants}
+                        <div
                             className="flex flex-wrap items-center justify-center lg:justify-start gap-3 mb-8 font-mono text-[10px] sm:text-xs uppercase tracking-[0.15em] text-slate-800 font-bold"
                         >
                             <span className="bg-slate-100 px-3 py-1 rounded-md">Full-Stack Dev</span>
@@ -139,19 +132,17 @@ const Hero = () => {
                             <span className="bg-slate-100 px-3 py-1 rounded-md">Cloud Solutions</span>
                             <span className="text-indigo-400 font-black">+</span>
                             <span className="bg-slate-100 px-3 py-1 rounded-md">Power BI</span>
-                        </motion.div>
+                        </div>
 
                         {/* Description */}
-                        <motion.p
-                            variants={itemVariants}
+                        <p
                             className="text-slate-800 font-medium max-w-xl mb-10 text-base sm:text-lg leading-relaxed"
                         >
                             I engineer robust, highly scalable digital solutions focusing on modern architectures, cloud infrastructure, and seamless user experiences. Let's build something extraordinary.
-                        </motion.p>
+                        </p>
 
                         {/* CTA Buttons & Social Links */}
-                        <motion.div
-                            variants={itemVariants}
+                        <div
                             className="flex flex-wrap justify-center lg:justify-start items-center gap-4 w-full"
                         >
                             <Link
@@ -171,36 +162,27 @@ const Hero = () => {
                             </Link>
 
 
-                        </motion.div>
-                    </motion.div>
+                        </div>
+                    </div>
 
                     {/* Right Column: Profile Composition */}
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
+                    <div
                         className="hidden lg:flex lg:w-1/2 justify-center lg:justify-end relative h-[500px] items-center"
                     >
                         <div className="relative w-[400px] h-[400px] xl:w-[480px] xl:h-[480px] flex items-center justify-center">
 
                             {/* Animated Outer Rings */}
-                            <motion.div
-                                animate={{ rotate: 360 }}
-                                transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+                            <div
                                 className="absolute inset-0 rounded-full border-[1.5px] border-dashed border-indigo-300/40"
-                            ></motion.div>
+                            ></div>
 
-                            <motion.div
-                                animate={{ rotate: -360 }}
-                                transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+                            <div
                                 className="absolute inset-6 rounded-full border border-cyan-400/30"
-                            ></motion.div>
+                            ></div>
 
-                            <motion.div
-                                animate={{ rotate: 360 }}
-                                transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+                            <div
                                 className="absolute inset-12 rounded-full border border-indigo-200/20"
-                            ></motion.div>
+                            ></div>
 
                             {/* Core Image Container */}
                             <a
@@ -303,7 +285,7 @@ const Hero = () => {
                             </motion.a> */}
 
                         </div>
-                    </motion.div>
+                    </div>
 
                 </div>
             </div>

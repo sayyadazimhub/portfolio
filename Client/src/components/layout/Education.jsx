@@ -52,26 +52,17 @@ const Education = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 {/* Elegant Centered Header */}
                 <div className="text-center max-w-3xl mx-auto mb-8">
-                    <motion.h2
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.1 }}
+                    <h2
                         className="text-3xl sm:text-4xl md:text-5xl font-black text-black tracking-tight font-serif mb-4"
                     >
                         Academic <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">Background</span>
-                    </motion.h2>
+                    </h2>
 
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.2 }}
-                    >
+                    <div>
                         <p className="text-sm md:text-base text-slate-800 font-light leading-relaxed max-w-2xl mx-auto">
                             My educational journey and the academic foundations that have shaped my professional career.
                         </p>
-                    </motion.div>
+                    </div>
                 </div>
 
                 {loading ? (
@@ -132,12 +123,7 @@ const Education = () => {
                                 <h3 className="text-2xl font-bold text-black font-serif">Highest Qualification</h3>
                             </div>
 
-                            <motion.div
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.5 }}
-                            >
+                            <div>
                                 <div className="bg-white p-5 sm:p-7 md:p-8 rounded-3xl sm:rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-indigo-100 relative overflow-hidden group">
                                     <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-50 rounded-full blur-3xl -mr-20 -mt-20 opacity-50 transition-opacity group-hover:opacity-100 pointer-events-none"></div>
 
@@ -212,7 +198,7 @@ const Education = () => {
                                         )}
                                     </div>
                                 </div>
-                            </motion.div>
+                            </div>
                         </div>
 
                         {/* Other Qualifications */}
@@ -227,12 +213,8 @@ const Education = () => {
 
                                 <div className="space-y-5">
                                     {educationList.slice(1).map((edu, index) => (
-                                        <motion.div
+                                        <div
                                             key={index}
-                                            initial={{ opacity: 0, y: 20 }}
-                                            whileInView={{ opacity: 1, y: 0 }}
-                                            viewport={{ once: true }}
-                                            transition={{ duration: 0.4, delay: index * 0.1 }}
                                         >
                                             <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-md hover:shadow-lg hover:shadow-slate-200/50 transition-all duration-300 group">
                                                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
@@ -275,7 +257,7 @@ const Education = () => {
 
                                                 </div>
                                             </div>
-                                        </motion.div>
+                                        </div>
                                     ))}
                                 </div>
                             </div>

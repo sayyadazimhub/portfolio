@@ -144,42 +144,26 @@ const Testimonials = () => {
                     {/* Left Text Column */}
                     <div className="flex flex-col items-start gap-6 md:gap-8">
                         <div className="flex flex-col items-start">
-                            <motion.h2 
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
+                            <h2 
                                 className="font-mono text-[10px] sm:text-xs uppercase tracking-[0.2em] mb-2 sm:mb-3 text-indigo-600 font-bold flex items-center gap-2"
                             >
                                 {/* <span className="w-6 h-0.5 bg-indigo-600 shrink-0"></span> */}
                                 <span className="truncate">Client Feedback</span>
-                            </motion.h2>
-                            <motion.h3 
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: 0.1 }}
+                            </h2>
+                            <h3 
                                 className="text-3xl sm:text-4xl lg:text-5xl font-black text-black font-serif leading-[1.1] tracking-tight mb-4"
                             >
                                 What People <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-cyan-500">Say.</span>
-                            </motion.h3>
-                            <motion.p 
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: 0.2 }}
+                            </h3>
+                            <p 
                                 className="text-slate-800 font-medium max-w-xl text-sm sm:text-base leading-relaxed text-justify md:text-left"
                             >
                                 Hear directly from those who have experienced working together. Their words reflect the impact and value of our collaboration, showcasing the real-world benefits and successes we've achieved together.
-                            </motion.p>
+                            </p>
                         </div>
 
                         {testimonials.length > 0 && (
-                            <motion.div
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: 0.3 }}
-                            >
+                            <div>
                                 <button
                                     type="button"
                                     onClick={() => setShowForm(true)}
@@ -188,16 +172,14 @@ const Testimonials = () => {
                                     <span>Give Feedback</span>
                                     <FaArrowRight className="text-black group-hover:text-indigo-600 group-hover:translate-x-1 transition-all duration-300" />
                                 </button>
-                            </motion.div>
+                            </div>
                         )}
                     </div>
 
                     {/* Right Slider Column */}
                     <div className="relative mt-10 lg:mt-0">
                         {testimonials.length === 0 ? (
-                            <motion.div
-                                initial={{ opacity: 0, scale: 0.95 }}
-                                animate={{ opacity: 1, scale: 1 }}
+                            <div
                                 className="relative rounded-2xl md:rounded-[32px] bg-white border border-slate-100 flex flex-col items-center justify-center p-10 md:p-16 shadow-[0_8px_30px_rgb(0,0,0,0.06)] min-h-[350px] text-center"
                             >
                                 <div className="h-20 w-20 bg-indigo-50 rounded-full flex items-center justify-center mb-6">
@@ -214,7 +196,7 @@ const Testimonials = () => {
                                     <span className="relative z-10">Give Feedback</span>
                                     <FaArrowRight className="relative z-10 w-3 h-3 group-hover:translate-x-1 transition-transform duration-300" />
                                 </button>
-                            </motion.div>
+                            </div>
                         ) : (
                             <>
                                 {/* Minimalist Prev Arrow */}
@@ -231,17 +213,12 @@ const Testimonials = () => {
                                     </div>
                                 )}
 
-                                <AnimatePresence mode="wait">
-                                    <motion.div
-                                        key={selectedTestimonial._id || currentIndex}
-                                        initial={{ opacity: 0, scale: 0.88, x: 10 }}
-                                        animate={{ opacity: 1, scale: 1, x: 0 }}
-                                        exit={{ opacity: 0, scale: 0.88, x: 10 }}
-                                        transition={{ duration: 0.45, ease: 'easeOut' }}
-                                        onMouseEnter={() => setIsPaused(true)}
-                                        onMouseLeave={() => setIsPaused(false)}
-                                        className="relative rounded-2xl md:rounded-[32px] bg-white border border-slate-100 flex flex-col p-7 md:p-10 shadow-[0_8px_30px_rgb(0,0,0,0.06)]"
-                                    >
+                                <div
+                                    key={selectedTestimonial._id || currentIndex}
+                                    onMouseEnter={() => setIsPaused(true)}
+                                    onMouseLeave={() => setIsPaused(false)}
+                                    className="relative rounded-2xl md:rounded-[32px] bg-white border border-slate-100 flex flex-col p-7 md:p-10 shadow-[0_8px_30px_rgb(0,0,0,0.06)]"
+                                >
                                         <div className="absolute top-10 right-10 text-indigo-500/5 pointer-events-none">
                                             <FaQuoteRight className="h-7 w-7 md:h-10 md:w-10" />
                                         </div>
@@ -296,8 +273,7 @@ const Testimonials = () => {
                                                 </a>
                                             )}
                                         </div>
-                                    </motion.div>
-                                </AnimatePresence>
+                                </div>
 
                                 {/* Minimalist Next Arrow */}
                                 {testimonials.length > 1 && (
@@ -319,10 +295,7 @@ const Testimonials = () => {
 
                 {showForm && (
                     <div className="fixed inset-0 z-[9999] flex min-h-screen items-center justify-center px-4 py-8 bg-slate-900/60 backdrop-blur-sm">
-                        <motion.div
-                            initial={{ opacity: 0, y: 20, scale: 0.95 }}
-                            animate={{ opacity: 1, y: 0, scale: 1 }}
-                            transition={{ duration: 0.25 }}
+                        <div
                             className="w-full max-w-xl max-h-[calc(100vh-3.5rem)] overflow-hidden rounded-3xl bg-white p-6 shadow-2xl ring-1 ring-slate-200 flex flex-col"
                         >
                             <div className="flex flex-row items-start justify-between gap-4 mb-6 shrink-0">
@@ -340,10 +313,7 @@ const Testimonials = () => {
                                 </button>
                             </div>
 
-                            <motion.form
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                transition={{ duration: 0.25, delay: 0.05 }}
+                            <form
                                 onSubmit={handleSubmit}
                                 className="space-y-5 overflow-y-auto pr-2 pb-2 custom-scrollbar flex-1"
                             >
@@ -478,8 +448,8 @@ const Testimonials = () => {
                                         <span className="relative z-10">{submitting ? 'Submitting...' : 'Submit Testimonial'}</span>
                                     </button>
                                 </div>
-                            </motion.form>
-                        </motion.div>
+                            </form>
+                        </div>
                     </div>
                 )}
 

@@ -125,12 +125,8 @@ const About = () => {
                     <div className="flex flex-col lg:flex-row items-center lg:items-stretch gap-12 lg:gap-16">
 
                         {/* Image Side */}
-                        <motion.div
+                        <div
                             className="w-full lg:w-4/12 flex items-center justify-center group"
-                            initial={{ opacity: 0, x: -20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, ease: "easeOut" }}
                         >
                             <div className="relative z-10 w-full max-w-xs sm:max-w-sm aspect-[4/5]">
                                 {/* Animated Backdrops */}
@@ -147,29 +143,21 @@ const About = () => {
                                     {/* Hover Details overlay */}
                                     <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/0 to-transparent flex flex-col justify-end p-6">
                                         {/* <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-transparent flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500"> */}
-                                        <motion.div
-                                            initial={{ y: 20, opacity: 0 }}
-                                            whileInView={{ y: 0, opacity: 1 }}
-                                            transition={{ delay: 0.1 }}
-                                        >
+                                        <div>
                                             <h4 className="text-2xl font-black text-white font-serif">{fullName}</h4>
                                             <p className="text-cyan-400 font-bold uppercase tracking-widest text-[10px] sm:text-xs mt-2 flex items-center gap-2">
                                                 <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
                                                 {title}
                                             </p>
-                                        </motion.div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </motion.div>
+                        </div>
 
                         {/* Content Side */}
-                        <motion.div
+                        <div
                             className="w-full lg:w-8/12 flex flex-col justify-center"
-                            initial={{ opacity: 0, x: 20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
                         >
                             <h2 className="font-mono text-[10px] sm:text-xs uppercase tracking-[0.2em] mb-2 sm:mb-3 text-indigo-600 font-bold flex items-center gap-2">
                                 Discover More
@@ -255,7 +243,7 @@ const About = () => {
                                 </Link>
                             </div>
 
-                        </motion.div>
+                        </div>
                     </div>
                 )}
             </div>

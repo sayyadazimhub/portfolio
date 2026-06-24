@@ -50,35 +50,24 @@ const Certifications = () => {
 
                 {/* Elegant Centered Header */}
                 <div className="text-center max-w-3xl mx-auto mb-8">
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
+                    <div
                         className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white shadow-sm border border-slate-200 text-indigo-700 font-bold tracking-widest uppercase text-xs mb-3"
                     >
                         <FaMedal className="text-indigo-500 text-sm" />
                         Milestones
-                    </motion.div>
+                    </div>
 
-                    <motion.h2
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.1 }}
+                    <h2
                         className="text-3xl sm:text-4xl md:text-5xl font-black text-black tracking-tight font-serif mb-4"
                     >
                         Honors & <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">Credentials</span>
-                    </motion.h2>
+                    </h2>
 
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.2 }}
+                    <p
                         className="text-sm md:text-base text-slate-800 font-light max-w-2xl mx-auto"
                     >
                         A showcase of continuous learning, professional certifications, and recognized achievements throughout my career.
-                    </motion.p>
+                    </p>
                 </div>
 
                 {loading ? (
@@ -118,25 +107,18 @@ const Certifications = () => {
                         {certificates.length > 0 && (
                             <div className="relative">
                                 <div className="flex items-center justify-between mb-6 relative z-10">
-                                    <motion.h3
-                                        initial={{ opacity: 0, x: -20 }}
-                                        whileInView={{ opacity: 1, x: 0 }}
-                                        viewport={{ once: true }}
+                                    <h3
                                         className="text-2xl font-black text-black tracking-tight font-serif relative"
                                     >
                                         Professional Certifications
                                         <div className="absolute -bottom-2 left-0 w-12 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full"></div>
-                                    </motion.h3>
+                                    </h3>
                                 </div>
 
                                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                                     {certificates.map((cert, index) => (
-                                        <motion.div
+                                        <div
                                             key={cert._id || index}
-                                            initial={{ opacity: 0, y: 30 }}
-                                            whileInView={{ opacity: 1, y: 0 }}
-                                            transition={{ duration: 0.5, delay: index * 0.1 }}
-                                            viewport={{ once: true }}
                                             className="group relative bg-white rounded-[2rem] shadow-sm hover:shadow-xl border border-slate-200/60 hover:border-indigo-300 transition-all duration-500 overflow-hidden flex flex-col"
                                         >
                                             {/* Background Image (Visible on hover) */}
@@ -207,7 +189,7 @@ const Certifications = () => {
                                                     )}
                                                 </div>
                                             </div>
-                                        </motion.div>
+                                        </div>
                                     ))}
                                 </div>
                             </div>
@@ -217,25 +199,18 @@ const Certifications = () => {
                         {achievements.length > 0 && (
                             <div className="relative pt-6">
                                 <div className="flex items-center justify-between mb-6 relative z-10">
-                                    <motion.h3
-                                        initial={{ opacity: 0, x: -20 }}
-                                        whileInView={{ opacity: 1, x: 0 }}
-                                        viewport={{ once: true }}
+                                    <h3
                                         className="text-2xl font-black text-black tracking-tight font-serif relative"
                                     >
                                         Milestones & Recognitions
                                         <div className="absolute -bottom-2 left-0 w-12 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full"></div>
-                                    </motion.h3>
+                                    </h3>
                                 </div>
 
                                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 relative z-10">
                                     {achievements.map((achieve, index) => (
-                                        <motion.div
+                                        <div
                                             key={achieve._id || index}
-                                            initial={{ opacity: 0, scale: 0.95 }}
-                                            whileInView={{ opacity: 1, scale: 1 }}
-                                            transition={{ duration: 0.4, delay: index * 0.05 }}
-                                            viewport={{ once: true }}
                                             className="group relative bg-white p-6 rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl hover:border-indigo-200 transition-all duration-300 hover:-translate-y-1.5 overflow-hidden flex flex-col h-full"
                                         >
                                             {/* Decorative Background */}
@@ -265,7 +240,7 @@ const Certifications = () => {
                                                     </p>
                                                 )}
                                             </div>
-                                        </motion.div>
+                                        </div>
                                     ))}
                                 </div>
                             </div>

@@ -135,9 +135,7 @@ const ProjectDetail = () => {
     if (error || !project) {
         return (
             <section className="bg-slate-50 pt-10 pb-14 relative overflow-hidden flex items-center justify-center">
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
+                <div
                     className="text-center p-12 sm:p-16 bg-white rounded-[2rem] border border-rose-100 shadow-sm flex flex-col items-center justify-center max-w-2xl mx-auto w-full mx-4"
                 >
                     <div className="w-16 h-16 bg-rose-50 rounded-full flex items-center justify-center border border-rose-100 shadow-sm mb-6">
@@ -155,7 +153,7 @@ const ProjectDetail = () => {
                     >
                         Back to Projects
                     </button>
-                </motion.div>
+                </div>
             </section>
         );
     }
@@ -165,10 +163,7 @@ const ProjectDetail = () => {
             {/* Soft background grid pattern */}
             <div className="absolute inset-0 z-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, black 1px, transparent 0)', backgroundSize: '32px 32px' }}></div>
 
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
+            <div
                 className="max-w-7xl mx-auto space-y-6 px-4 sm:px-6 relative z-10 text-slate-700"
             >
                 {/* Navigation and Actions */}
@@ -432,12 +427,8 @@ const ProjectDetail = () => {
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-10">
                             {relatedProjects.map((p, index) => (
-                                <motion.div
+                                <div
                                     key={p._id || p.id}
-                                    initial={{ opacity: 0, y: 20 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: 0.5, delay: index * 0.1 }}
                                     onClick={() => {
                                         navigate(`/projects/${p._id || p.id}`);
                                         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -468,32 +459,27 @@ const ProjectDetail = () => {
                                             </a>
                                         )}
                                     </div>
-                                </motion.div>
+                                </div>
                             ))}
                         </div>
                     </div>
                 )}
 
                 {/* Return to Top Button */}
-                <AnimatePresence>
-                    {showTopBtn && (
-                        <motion.div
-                            initial={{ opacity: 0, y: 20, x: "-50%" }}
-                            animate={{ opacity: 1, y: 0, x: "-50%" }}
-                            exit={{ opacity: 0, y: 20, x: "-50%" }}
-                            className="fixed bottom-6 sm:bottom-10 left-1/2 z-50 flex justify-center"
+                {showTopBtn && (
+                    <div
+                        className="fixed bottom-6 sm:bottom-10 left-1/2 transform -translate-x-1/2 z-50 flex justify-center"
+                    >
+                        <button
+                            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                            className="inline-flex items-center gap-2 px-5 py-2.5 sm:px-6 sm:py-3 rounded-full bg-black border border-slate-700 text-white hover:bg-indigo-600 hover:border-indigo-500 shadow-xl shadow-slate-900/20 font-mono text-[10px] sm:text-xs uppercase tracking-widest font-bold transition-all duration-300 hover:-translate-y-1 cursor-pointer"
                         >
-                            <button
-                                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                                className="inline-flex items-center gap-2 px-5 py-2.5 sm:px-6 sm:py-3 rounded-full bg-black border border-slate-700 text-white hover:bg-indigo-600 hover:border-indigo-500 shadow-xl shadow-slate-900/20 font-mono text-[10px] sm:text-xs uppercase tracking-widest font-bold transition-all duration-300 hover:-translate-y-1 cursor-pointer"
-                            >
-                                <FaArrowUp size={12} />
-                                <span>Return to Top</span>
-                            </button>
-                        </motion.div>
-                    )}
-                </AnimatePresence>
-            </motion.div>
+                            <FaArrowUp size={12} />
+                            <span>Return to Top</span>
+                        </button>
+                    </div>
+                )}
+            </div>
         </section>
     );
 };

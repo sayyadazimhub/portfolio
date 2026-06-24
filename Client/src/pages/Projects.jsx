@@ -137,43 +137,32 @@ const Projects = () => {
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-8 mb-12 lg:mb-18">
           {/* Left Content */}
           <div className="w-full lg:w-[55%] flex flex-col items-center lg:items-start text-center lg:text-left px-2 sm:px-0">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+            <div
               className="inline-flex items-center gap-2 sm:gap-3 mb-3 lg:mb-6 px-3 sm:px-4 py-1.5 sm:py-2 bg-white rounded-full border border-slate-100 shadow-sm"
             >
               <FaCode className="text-indigo-600 text-sm sm:text-base" />
               <span className="font-mono text-[9px] sm:text-[11px] md:text-xs uppercase tracking-[0.2em] text-slate-800 font-bold">
                 Development Portfolio
               </span>
-            </motion.div>
+            </div>
 
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
+            <h1
               className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-black tracking-tight font-serif mb-3 lg:mb-6 leading-[1.15] sm:leading-[1.1]"
             >
               Explore My{" "}
               <span className="inline mt-1 sm:mt-0 text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-cyan-500">
                 Archive
               </span>
-            </motion.h1>
+            </h1>
 
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
+            <p
               className="text-slate-800 font-medium text-base md:text-lg leading-relaxed sm:leading-relaxed max-w-xl mx-auto lg:mx-0 mb-8 sm:mb-10"
             >
               A curated collection of my latest work, scalable architectures,
               and intuitive web interfaces built with modern technologies.
-            </motion.p>
+            </p>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
+            <div
               className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 sm:gap-6 w-full sm:w-auto"
             >
               <button
@@ -191,14 +180,11 @@ const Projects = () => {
               >
                 Let's Talk
               </button>
-            </motion.div>
+            </div>
           </div>
 
           {/* Right Graphic */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.2, duration: 0.8 }}
+          <div
             className="w-full lg:w-[45%] relative hidden lg:flex justify-center lg:justify-end"
           >
             {/* Refined Hanging Letters Graphic */}
@@ -221,17 +207,9 @@ const Projects = () => {
                     i % 2 !== 0 ? "mt-24 sm:mt-36" : "mt-16 sm:mt-24";
 
                   return (
-                    <motion.div
+                    <div
                       key={i}
                       className="relative flex flex-col items-center"
-                      animate={{ rotate: [-3, 3, -3] }}
-                      transition={{
-                        duration: swingDuration,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                        delay: i * 0.15,
-                      }}
-                      style={{ transformOrigin: "top center" }}
                     >
                       {/* The Hanging Wire */}
                       <div
@@ -258,12 +236,12 @@ const Projects = () => {
                           {letter}
                         </span>
                       </div>
-                    </motion.div>
+                    </div>
                   );
                 })}
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
 
         {loading ? (
@@ -305,9 +283,7 @@ const Projects = () => {
           </div>
           </>
         ) : error ? (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+          <div
             className="text-center py-16 bg-white rounded-[2rem] border border-rose-100 shadow-sm flex flex-col items-center justify-center max-w-2xl mx-auto mt-10"
           >
             <div className="w-16 h-16 bg-rose-50 rounded-full flex items-center justify-center border border-rose-100 shadow-sm mb-6">
@@ -325,11 +301,9 @@ const Projects = () => {
             >
               Refresh Page
             </button>
-          </motion.div>
+          </div>
         ) : projects.length === 0 ? (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+          <div
             className="text-center py-20 bg-white rounded-[2rem] border border-slate-100 shadow-sm flex flex-col items-center justify-center max-w-3xl mx-auto mt-10"
           >
             <div className="w-20 h-20 bg-indigo-50 rounded-full flex items-center justify-center border border-indigo-100 shadow-sm mb-6">
@@ -341,15 +315,12 @@ const Projects = () => {
             <p className="text-slate-500 font-medium max-w-md mx-auto leading-relaxed">
               I'm currently putting the finishing touches on some exciting new case studies. Check back shortly to explore my latest work!
             </p>
-          </motion.div>
+          </div>
         ) : (
           <>
             {/* Segmented Control Filter Section */}
             {projects.length > 0 && (
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
+              <div
                 className="mb-10 sm:mb-12 w-full max-w-7xl mx-auto px-4 sm:px-0 sticky top-24 z-30"
               >
                 <div className="flex flex-row gap-2 md:gap-0 items-center justify-between bg-white/80 backdrop-blur-2xl p-2 md:py-1 md:px-4 rounded-full border border-slate-200 shadow-xl shadow-indigo-500/5">
@@ -367,30 +338,22 @@ const Projects = () => {
                       className="w-full bg-slate-100/50 hover:bg-slate-100 focus:bg-white border border-transparent focus:border-indigo-200 outline-none focus:ring-4 focus:ring-indigo-500/10 rounded-full py-2.5 pl-12 lg:pl-11 pr-16 text-[14px] font-medium text-slate-800 placeholder-slate-400 transition-all duration-300 shadow-inner focus:shadow-md"
                     />
                     <div className="absolute inset-y-0 right-0 pr-4 lg:pr-2 flex items-center gap-1.5">
-                      <AnimatePresence mode="wait">
                         {searchTerm ? (
-                          <motion.button
+                          <button
                             key="clear"
-                            initial={{ opacity: 0, scale: 0.8 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            exit={{ opacity: 0, scale: 0.8 }}
                             onClick={() => setSearchTerm("")}
                             className="p-1.5 bg-white text-slate-400 hover:text-rose-500 rounded-full border border-slate-200 shadow-sm transition-colors cursor-pointer"
                           >
                             <FaTimes size={10} />
-                          </motion.button>
+                          </button>
                         ) : (
-                          <motion.div
+                          <div
                             key="hint"
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
                             className="hidden sm:flex items-center justify-center px-2 py-0.5 rounded-md bg-white border border-slate-200 text-[10px] font-bold text-slate-400 shadow-sm mr-1 pointer-events-none"
                           >
                             ⌘K
-                          </motion.div>
+                          </div>
                         )}
-                      </AnimatePresence>
                     </div>
                   </div>
 
@@ -407,12 +370,8 @@ const Projects = () => {
                         {filterType === 'All' ? 'All Works' : filterType}
                       </span>
                       <div className="flex items-center gap-1.5 shrink-0">
-                        <AnimatePresence>
                           {filterType !== 'All' && (
-                            <motion.div
-                              initial={{ opacity: 0, scale: 0.8 }}
-                              animate={{ opacity: 1, scale: 1 }}
-                              exit={{ opacity: 0, scale: 0.8 }}
+                            <div
                               onClick={(e) => {
                                 e.stopPropagation();
                                 setFilterType('All');
@@ -420,19 +379,14 @@ const Projects = () => {
                               className="p-1 bg-white text-slate-400 hover:text-rose-500 rounded-full border border-slate-200 shadow-sm transition-colors cursor-pointer"
                             >
                               <FaTimes size={10} />
-                            </motion.div>
+                            </div>
                           )}
-                        </AnimatePresence>
                         <FaChevronDown className={`text-slate-400 text-xs transition-transform duration-300 ${isTypeDropdownOpen ? 'rotate-180' : ''}`} />
                       </div>
                     </div>
 
-                    <AnimatePresence>
                       {isTypeDropdownOpen && (
-                        <motion.div
-                          initial={{ opacity: 0, y: 10 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          exit={{ opacity: 0, y: 10 }}
+                        <div
                           className="absolute top-full mt-2 left-0 right-0 lg:right-2 bg-white border border-slate-200 rounded-2xl shadow-xl shadow-indigo-500/10 overflow-hidden z-50 py-2"
                         >
                           <button
@@ -450,19 +404,16 @@ const Projects = () => {
                               {type}
                             </button>
                           ))}
-                        </motion.div>
+                        </div>
                       )}
-                    </AnimatePresence>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             )}
 
             {/* Empty State */}
             {filteredProjects.length === 0 && projects.length > 0 ? (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
+              <div
                 className="text-center py-16 bg-white rounded-[2rem] border border-slate-100 shadow-sm flex flex-col items-center justify-center"
               >
                 <div className="w-20 h-20 bg-slate-50 rounded-full flex items-center justify-center border border-slate-100 shadow-sm mb-6">
@@ -484,33 +435,25 @@ const Projects = () => {
                 >
                   Clear All Filters
                 </button>
-              </motion.div>
+              </div>
             ) : (
               <>
                 {/* Animated Grid Layout */}
-                <motion.div
-                  layout
+                <div
                   className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-10"
                 >
-                  <AnimatePresence mode="popLayout">
                     {paginatedProjects.map((project, index) => (
-                      <motion.div
-                        layout
+                      <div
                         key={project._id}
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 0.9 }}
-                        transition={{ duration: 0.3 }}
                       >
                         <ProjectCard
                           project={project}
                           index={index}
                           onClick={() => navigate(`/projects/${project._id}`)}
                         />
-                      </motion.div>
+                      </div>
                     ))}
-                  </AnimatePresence>
-                </motion.div>
+                </div>
 
                 {/* Pagination Controls */}
                 {totalPages > 1 && (

@@ -1,6 +1,6 @@
 import AboutComponent from '../components/layout/About';
 import Experience from '../components/layout/Experience';
-import { motion } from 'framer-motion';
+import Education from '../components/layout/Education';
 
 import Certifications from '../components/layout/Certifications';
 

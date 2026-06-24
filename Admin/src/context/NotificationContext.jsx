@@ -6,7 +6,23 @@ const NotificationContext = createContext();
 
 export const NotificationProvider = ({ children }) => {
   const { socket, isConnected } = useSocket();
-  const [notifications, setNotifications] = useState([]);
+  const [notifications, setNotifications] = useState(() => {
+    try {
+      const saved = localStorage.getItem('adminNotifications');
+      return saved ? JSON.parse(saved) : [];
+    } catch (e) {
+      console.error('Failed to load notifications', e);
+      return [];
+    }
+  });
+
+  useEffect(() => {
+    try {
+      localStorage.setItem('adminNotifications', JSON.stringify(notifications));
+    } catch (e) {
+      console.error('Failed to save notifications', e);
+    }
+  }, [notifications]);
   const [displayedNotifications, setDisplayedNotifications] = useState([]);
 
   // Listen for socket events globally

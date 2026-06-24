@@ -15,6 +15,20 @@ const Resume = () => {
     const [pageNumber, setPageNumber] = useState(1);
     const [scale, setScale] = useState(1.0);
     const scrollContainerRef = useRef(null);
+    const [pageWidth, setPageWidth] = useState(null);
+
+    useEffect(() => {
+        const updateWidth = () => {
+            if (window.innerWidth < 768) {
+                setPageWidth(window.innerWidth - 64); // Safe padding for mobile
+            } else {
+                setPageWidth(null);
+            }
+        };
+        updateWidth();
+        window.addEventListener('resize', updateWidth);
+        return () => window.removeEventListener('resize', updateWidth);
+    }, []);
 
     const onDocumentLoadSuccess = ({ numPages }) => {
         setNumPages(numPages);
@@ -210,7 +224,7 @@ const Resume = () => {
                                     className="flex-1 overflow-auto bg-slate-100/50 p-4 sm:p-8"
                                     onScroll={handleScroll}
                                 >
-                                    <div className="w-fit mx-auto min-h-[600px]">
+                                    <div className="w-full mx-auto min-h-[600px] flex justify-center">
                                         {resume?.resumeUrl ? (
                                             <Document
                                                 file={resume.resumeUrl}
@@ -224,9 +238,10 @@ const Resume = () => {
                                                         key={`page_${index + 1}`}
                                                         pageNumber={index + 1}
                                                         scale={scale}
+                                                        width={pageWidth || undefined}
                                                         renderTextLayer={false}
                                                         renderAnnotationLayer={false}
-                                                        className="shadow-xl shadow-slate-300/30 border border-slate-200 bg-white rounded-sm overflow-hidden"
+                                                        className="shadow-xl shadow-slate-300/30 border border-slate-200 bg-white rounded-sm overflow-hidden max-w-full"
                                                     />
                                                 ))}
                                             </Document>

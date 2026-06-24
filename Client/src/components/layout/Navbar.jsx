@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { FaBars, FaTimes } from 'react-icons/fa';
+import { motion, AnimatePresence } from 'framer-motion';
 
 import logo from '../../assets/logo.png';
 
@@ -123,10 +124,16 @@ const Navbar = () => {
             </div>
 
             {/* Mobile Menu */}
-            <div
-                className={`overflow-hidden bg-white md:hidden transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${isOpen ? 'max-h-[600px] opacity-100 border-t border-slate-200' : 'max-h-0 opacity-0 border-t-0 border-transparent'}`}
-            >
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 py-2 flex flex-col">
+            <AnimatePresence>
+                {isOpen && (
+                    <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3, ease: 'easeInOut' }}
+                        className="absolute top-full left-0 w-full overflow-hidden bg-white md:hidden border-t border-slate-200 shadow-xl"
+                    >
+                        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-2 flex flex-col">
                         {navLinks.map((link) => {
                             const active = isActive(link.path);
                             return (
@@ -169,7 +176,9 @@ const Navbar = () => {
                             </div>
                         </div>
                     </div>
-                </div>
+                </motion.div>
+            )}
+        </AnimatePresence>
         </header>
     );
 };

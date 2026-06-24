@@ -8,7 +8,6 @@ const FeaturedProjects = () => {
     const [projects, setProjects] = useState([]);
     const [loading, setLoading] = useState(true);
     const [current, setCurrent] = useState(0);
-    const [isPaused, setIsPaused] = useState(false);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -30,15 +29,6 @@ const FeaturedProjects = () => {
         fetchProjects();
     }, []);
 
-    // Autoplay logic
-    useEffect(() => {
-        if (!isPaused && projects.length > 0) {
-            const timer = setInterval(() => {
-                setCurrent((prev) => (prev < projects.length - 1 ? prev + 1 : 0));
-            }, 3000);
-            return () => clearInterval(timer);
-        }
-    }, [isPaused, projects.length, current]);
 
     if (!loading && projects.length === 0) {
         return null;
@@ -107,8 +97,6 @@ const FeaturedProjects = () => {
                     <div className="relative w-full py-10 overflow-hidden px-4 flex flex-col items-center justify-center">
                         {/* Cards Container */}
                         <div
-                            onMouseEnter={() => setIsPaused(true)}
-                            onMouseLeave={() => setIsPaused(false)}
                             className="relative w-full max-w-6xl h-[300px] sm:h-[400px] md:h-[450px] lg:h-[500px] flex items-center justify-center"
                         >
                             {projects.map((project, index) => {
@@ -145,12 +133,13 @@ const FeaturedProjects = () => {
                                 return (
                                     <div
                                         key={project._id || index}
-                                        className="absolute w-[85%] sm:w-[500px] md:w-[700px] lg:w-[900px] lg:h-[90%] md:h-[80%] sm:h-[70%] h-full transition-all duration-700 ease-out cursor-pointer"
+                                        className="absolute w-[85%] sm:w-[500px] md:w-[700px] lg:w-[900px] lg:h-[90%] md:h-[80%] sm:h-[70%] h-full cursor-pointer"
                                         style={{
                                             transform: `translateX(${translateX}%) scale(${scale})`,
                                             zIndex: zIndex,
                                             opacity: opacity,
                                             pointerEvents: diff === 0 ? 'auto' : 'none',
+                                            transition: 'transform 0.8s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1)'
                                         }}
                                         onClick={() => setCurrent(index)}
                                     >
@@ -211,25 +200,23 @@ const FeaturedProjects = () => {
                         </div>
 
                         {/* Navigation Arrows */}
-                        <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 w-full max-w-[1400px] mx-auto flex justify-between px-2 sm:px-6 md:px-10 lg:px-16 z-[40] pointer-events-none">
-                            <button
-                                onMouseEnter={() => setIsPaused(true)}
-                                onMouseLeave={() => setIsPaused(false)}
-                                onClick={() => setCurrent((prev) => (prev > 0 ? prev - 1 : projects.length - 1))}
-                                className="group relative flex items-center justify-center bg-white hover:bg-slate-50 text-black border border-slate-200 w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full shadow-md hover:shadow-lg transition-all duration-300 pointer-events-auto cursor-pointer"
-                            >
-                                <FaArrowLeft className="text-indigo-500 w-3 h-3 md:w-4 md:h-4 transition-transform duration-300 group-hover:-translate-x-1" />
-                            </button>
+                        {projects.length > 1 && (
+                            <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 w-full max-w-[1400px] mx-auto flex justify-between px-2 sm:px-6 md:px-10 lg:px-16 z-[40] pointer-events-none">
+                                <button
+                                    onClick={() => setCurrent((prev) => (prev > 0 ? prev - 1 : projects.length - 1))}
+                                    className="group relative flex items-center justify-center bg-white hover:bg-slate-50 text-black border border-slate-200 w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full shadow-md hover:shadow-lg transition-all duration-300 pointer-events-auto cursor-pointer"
+                                >
+                                    <FaArrowLeft className="text-indigo-500 w-3 h-3 md:w-4 md:h-4 transition-transform duration-300 group-hover:-translate-x-1" />
+                                </button>
 
-                            <button
-                                onMouseEnter={() => setIsPaused(true)}
-                                onMouseLeave={() => setIsPaused(false)}
-                                onClick={() => setCurrent((prev) => (prev < projects.length - 1 ? prev + 1 : 0))}
-                                className="group relative flex items-center justify-center bg-white hover:bg-slate-50 text-black border border-slate-200 w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full shadow-md hover:shadow-lg transition-all duration-300 pointer-events-auto cursor-pointer"
-                            >
-                                <FaArrowRight className="text-indigo-500 w-3 h-3 md:w-4 md:h-4 transition-transform duration-300 group-hover:translate-x-1" />
-                            </button>
-                        </div>
+                                <button
+                                    onClick={() => setCurrent((prev) => (prev < projects.length - 1 ? prev + 1 : 0))}
+                                    className="group relative flex items-center justify-center bg-white hover:bg-slate-50 text-black border border-slate-200 w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full shadow-md hover:shadow-lg transition-all duration-300 pointer-events-auto cursor-pointer"
+                                >
+                                    <FaArrowRight className="text-indigo-500 w-3 h-3 md:w-4 md:h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                                </button>
+                            </div>
+                        )}
                     </div>
                 )}
             </div>

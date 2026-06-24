@@ -8,6 +8,7 @@ export const initSocket = (server) => {
       origin: [
         'http://localhost:5173',  // Client
         'http://localhost:5174',  // Admin Dashboard
+        'https://portfolio-admin-owiw.onrender.com', // Admin Dashboard Render
         process.env.FRONTEND_URL,
       ].filter(Boolean),
       methods: ['GET', 'POST'],

@@ -12,16 +12,16 @@ const ContactNotification = ({ notification, onClose }) => {
     : notification.email;
 
   return (
-    <div className="fixed top-4 right-4 bg-white rounded-lg shadow-2xl p-4 max-w-sm z-50 animate-slideIn">
+    <div className="pointer-events-auto bg-white rounded-lg shadow-xl p-4 w-full sm:max-w-sm border border-gray-100 z-50 animate-slideIn transition-all">
       <div className="flex gap-4">
         <div className="flex-1">
           <div className="flex items-center justify-between mb-2">
             <h3 className="font-bold text-gray-800">{title}</h3>
             <button
               onClick={onClose}
-              className="text-gray-400 hover:text-gray-600 text-xl"
+              className="text-gray-400 hover:text-gray-600 text-xl leading-none"
             >
-              ✕
+              &times;
             </button>
           </div>
           <p className="text-sm text-gray-600 mb-1">

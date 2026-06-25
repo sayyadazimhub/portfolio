@@ -8,7 +8,7 @@ const NotificationCenter = () => {
   return (
     <>
       {/* Toast Notifications */}
-      <div className="fixed top-4 right-4 z-50 space-y-2">
+      <div className="fixed top-4 right-0 left-0 sm:left-auto z-50 p-4 space-y-3 w-full sm:w-auto max-w-full flex flex-col pointer-events-none sm:items-end">
         {displayedNotifications.map((notification) => (
           <ContactNotification
             key={notification.id}

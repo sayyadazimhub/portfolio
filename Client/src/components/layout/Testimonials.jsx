@@ -170,7 +170,7 @@ const Testimonials = () => {
                                     className="group inline-flex items-center justify-center gap-2 sm:gap-3 bg-white text-black border-2 border-black px-5 py-3 sm:px-6 sm:py-3.5 rounded-lg font-mono text-[10px] sm:text-xs uppercase tracking-[0.12em] font-bold hover:border-indigo-300 hover:text-indigo-600 hover:bg-indigo-50 transition-all duration-300 w-fit cursor-pointer"
                                 >
                                     <span>Give Feedback</span>
-                                    <FaArrowRight className="text-black group-hover:text-indigo-600 group-hover:translate-x-1 transition-all duration-300" />
+                                    {/* <FaArrowRight className="text-black group-hover:text-indigo-600 group-hover:translate-x-1 transition-all duration-300" /> */}
                                 </button>
                             </div>
                         )}
@@ -194,7 +194,7 @@ const Testimonials = () => {
                                     style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 531.28 200'%3E%3Cdefs%3E%3Cstyle%3E .shape %7B fill: %232563eb %7D %3C/style%3E%3C/defs%3E%3Cg id='Layer_2' data-name='Layer 2'%3E%3Cg id='Layer_1-2' data-name='Layer 1'%3E%3Cpolygon class='shape' points='415.81 200 0 200 115.47 0 531.28 0 415.81 200' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")" }}
                                 >
                                     <span className="relative z-10">Give Feedback</span>
-                                    <FaArrowRight className="relative z-10 w-3 h-3 group-hover:translate-x-1 transition-transform duration-300" />
+                                    {/* <FaArrowRight className="relative z-10 w-3 h-3 group-hover:translate-x-1 transition-transform duration-300" /> */}
                                 </button>
                             </div>
                         ) : (

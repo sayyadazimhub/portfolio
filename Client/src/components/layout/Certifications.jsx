@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { FaTrophy, FaCertificate, FaExternalLinkAlt, FaCalendarAlt, FaAward, FaMedal, FaCheckCircle } from 'react-icons/fa';
+import { FaTrophy, FaCertificate, FaExternalLinkAlt, FaCalendarAlt, FaAward, FaMedal, FaCheckCircle, FaImage, FaTimes } from 'react-icons/fa';
 import { apiService } from '../../utils/api';
 
 const Certifications = () => {
     const [certificates, setCertificates] = useState([]);
     const [achievements, setAchievements] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [selectedImage, setSelectedImage] = useState(null);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -115,79 +115,53 @@ const Certifications = () => {
                                     </h3>
                                 </div>
 
-                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mt-8 px-2 md:px-4">
                                     {certificates.map((cert, index) => (
                                         <div
                                             key={cert._id || index}
-                                            className="group relative bg-white rounded-[2rem] shadow-sm hover:shadow-xl border border-slate-200/60 hover:border-indigo-300 transition-all duration-500 overflow-hidden flex flex-col"
+                                            className="group relative aspect-[4/3] w-full rounded-2xl overflow-hidden bg-white shadow-sm border border-slate-200 hover:shadow-xl hover:border-indigo-200 transition-all duration-500"
                                         >
-                                            {/* Background Image (Visible on hover) */}
-                                            {cert.certificateImage && (
-                                                <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-all duration-700 ease-in-out pointer-events-none overflow-hidden rounded-[2rem] bg-white">
+                                            {/* Full Certificate Image */}
+                                            <div className="absolute inset-0 flex items-center justify-center p-5 sm:p-6 bg-slate-50/50 group-hover:bg-white transition-colors duration-500 z-0">
+                                                {cert.certificateImage ? (
                                                     <img
                                                         src={cert.certificateImage}
                                                         alt={cert.title}
-                                                        className="absolute inset-0 w-full h-full object-contain p-2 scale-95 group-hover:scale-100 transition-transform duration-700 ease-out drop-shadow-sm"
+                                                        className="w-full h-full object-contain filter drop-shadow-sm group-hover:drop-shadow-md group-hover:scale-[1.03] transition-all duration-500 ease-out"
                                                     />
-                                                    {/* Soft vignette overlay */}
-                                                    <div className="absolute inset-0 shadow-[inset_0_0_10px_rgba(0,0,0,0.1)] rounded-[2rem]"></div>
-                                                </div>
-                                            )}
+                                                ) : (
+                                                    <FaCertificate className="text-7xl text-slate-200 group-hover:scale-110 group-hover:text-slate-300 transition-all duration-500" />
+                                                )}
+                                            </div>
 
-                                            {/* Front Content */}
-                                            <div className="relative z-10 flex flex-col h-full p-8">
-                                                {/* Decorative Corner element */}
-                                                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-indigo-50/50 to-transparent rounded-tr-[2rem] opacity-50 pointer-events-none"></div>
-
-                                                {/* Fading Content */}
-                                                <div className={`flex flex-col flex-grow transition-all duration-500 ease-out origin-top ${cert.certificateImage ? 'group-hover:opacity-0 group-hover:-translate-y-2' : ''}`}>
-                                                    <div className="flex items-center justify-between mb-6">
-                                                        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-[10px] font-bold uppercase tracking-widest border border-emerald-100/50 shadow-sm">
-                                                            <FaCheckCircle className="text-emerald-500" />
-                                                            Verified
-                                                        </span>
+                                            {/* Bottom Action Bar (Slides up on hover) */}
+                                            <div className="absolute bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md p-4 border-t border-slate-100 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out z-20 flex justify-between items-center shadow-[0_-4px_20px_rgba(0,0,0,0.04)]">
+                                                <div className="flex flex-col pr-3 min-w-0">
+                                                    <h3 className="text-sm font-bold text-slate-800 truncate mb-1">{cert.title}</h3>
+                                                    <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
+                                                        <span className="text-[10px] font-bold text-indigo-600 uppercase tracking-wider">{cert.issuer}</span>
                                                         {cert.credentialId && (
-                                                            <span className="text-[9px] font-mono font-medium text-slate-600 uppercase tracking-widest bg-slate-50 px-2 py-1 rounded-md border border-slate-100 truncate max-w-[120px]" title={cert.credentialId}>
+                                                            <span className="text-[9px] font-mono font-medium text-slate-500 bg-slate-100/80 px-1.5 py-0.5 rounded truncate max-w-[110px]">
                                                                 ID: {cert.credentialId}
                                                             </span>
                                                         )}
                                                     </div>
-
-                                                    <div className="mb-4">
-                                                        <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-1.5">Certification</p>
-                                                        <h3 className="text-xl font-bold text-slate-900 tracking-tight">{cert.title}</h3>
-                                                    </div>
-
-                                                    <div className="w-full h-px bg-gradient-to-r from-slate-200 via-slate-100 to-transparent mb-5"></div>
-
-                                                    <div className="mb-8">
-                                                        <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-1.5">Issuer</p>
-                                                        <h4 className="text-lg font-serif font-bold text-slate-800 leading-snug">{cert.issuer}</h4>
-                                                    </div>
-
-                                                    <div className="mt-auto">
-                                                        <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-1">Issue Date</p>
-                                                        <p className="text-sm font-medium text-slate-900">{formatDate(cert.issueDate)}</p>
-                                                    </div>
                                                 </div>
-
-                                                {/* Non-fading Icon Button */}
-                                                <div className="absolute bottom-8 right-8 z-20">
-                                                    {cert.credentialUrl ? (
-                                                        <a
-                                                            href={cert.credentialUrl}
-                                                            target="_blank"
-                                                            rel="noopener noreferrer"
-                                                            className="w-10 h-10 rounded-full bg-white flex items-center justify-center border border-slate-200 shadow-sm transition-all duration-300 hover:scale-110 hover:bg-blue-500 hover:border-blue-500 cursor-pointer group-hover:bg-blue-500 group-hover:border-blue-500"
-                                                        >
-                                                            <FaExternalLinkAlt className="text-slate-500 text-sm transition-colors duration-300 group-hover:text-white" />
-                                                        </a>
-                                                    ) : (
-                                                        <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center border border-slate-200 shadow-sm transition-all duration-300 group-hover:bg-blue-500 group-hover:border-blue-500">
-                                                            <FaAward className="text-slate-400 text-lg transition-colors duration-300 group-hover:text-white" />
-                                                        </div>
-                                                    )}
-                                                </div>
+                                                {cert.credentialUrl ? (
+                                                    <a
+                                                        href={cert.credentialUrl}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="w-9 h-9 shrink-0 rounded-full bg-indigo-50 flex items-center justify-center text-indigo-600 hover:bg-indigo-600 hover:text-white hover:shadow-md transition-all duration-300"
+                                                        title="View Credential"
+                                                    >
+                                                        <FaExternalLinkAlt size={12} />
+                                                    </a>
+                                                ) : (
+                                                    <div className="w-9 h-9 shrink-0 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-500 shadow-sm" title="Verified">
+                                                        <FaCheckCircle size={14} />
+                                                    </div>
+                                                )}
                                             </div>
                                         </div>
                                     ))}
@@ -207,38 +181,57 @@ const Certifications = () => {
                                     </h3>
                                 </div>
 
-                                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 relative z-10">
+                                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 mt-8">
                                     {achievements.map((achieve, index) => (
                                         <div
                                             key={achieve._id || index}
-                                            className="group relative bg-white p-6 rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl hover:border-indigo-200 transition-all duration-300 hover:-translate-y-1.5 overflow-hidden flex flex-col h-full"
+                                            className="group relative flex flex-col justify-between bg-white rounded-[2rem] p-8 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] border border-slate-100 hover:border-indigo-100 transition-all duration-500 overflow-hidden z-10"
                                         >
-                                            {/* Decorative Background */}
-                                            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-indigo-50 to-transparent rounded-bl-full opacity-50 group-hover:from-indigo-100 transition-colors duration-500"></div>
+                                            {/* Decorative Ambient Background */}
+                                            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-indigo-50 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10"></div>
 
-                                            <div className="flex justify-between items-start mb-5 relative z-10">
-                                                <div className="w-12 h-12 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center group-hover:bg-indigo-50 group-hover:border-indigo-100 transition-colors duration-300 shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)]">
-                                                    <FaAward className="text-indigo-500 text-xl group-hover:scale-110 group-hover:rotate-12 transition-transform duration-300" />
+                                            <div className="relative z-10 flex flex-col sm:flex-row gap-5 sm:gap-6 items-stretch">
+
+                                                {/* Left side: Text Content */}
+                                                <div className="flex flex-col flex-grow min-w-0">
+                                                    <div className="flex items-center gap-4 mb-4">
+                                                        <div className="shrink-0 w-14 h-14 rounded-2xl bg-indigo-50 flex items-center justify-center shadow-inner border border-indigo-100/50 group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-500">
+                                                            <FaMedal className="text-2xl text-indigo-500" />
+                                                        </div>
+                                                        <div className="flex flex-col justify-center min-w-0">
+                                                            <span className="text-[10px] font-black text-indigo-600 uppercase tracking-widest mb-1">
+                                                                {achieve.issuer}
+                                                            </span>
+                                                            <h4 className="text-lg font-bold text-slate-900 leading-snug group-hover:text-indigo-600 transition-colors duration-300 line-clamp-2">
+                                                                {achieve.title}
+                                                            </h4>
+                                                        </div>
+                                                    </div>
+
+                                                    {achieve.description && (
+                                                        <p className="text-sm text-slate-500 leading-relaxed line-clamp-2">
+                                                            {achieve.description}
+                                                        </p>
+                                                    )}
                                                 </div>
-                                                <span className="text-[9px] font-bold text-slate-600 bg-slate-50 px-2.5 py-1.5 rounded-lg uppercase tracking-widest border border-slate-100 shadow-sm">
-                                                    {formatDate(achieve.date)}
-                                                </span>
-                                            </div>
 
-                                            <div className="relative z-10 flex-grow flex flex-col">
-                                                <h4 className="text-lg font-bold text-slate-900 mb-1 leading-tight group-hover:text-indigo-700 transition-colors duration-300">
-                                                    {achieve.title}
-                                                </h4>
-                                                <p className="text-[10px] font-bold text-indigo-600 mb-4 uppercase tracking-widest flex items-center gap-1.5">
-                                                    <span className="w-3 h-[2px] bg-indigo-500 rounded-full"></span>
-                                                    {achieve.issuer}
-                                                </p>
-
-                                                {achieve.description && (
-                                                    <p className="text-sm text-slate-600 leading-relaxed line-clamp-3 mt-auto pt-4 border-t border-slate-100">
-                                                        {achieve.description}
-                                                    </p>
-                                                )}
+                                                {/* right side: Image Content */}
+                                                <div className="flex flex-row sm:flex-col items-center sm:items-end justify-between shrink-0 gap-3 sm:gap-2 mt-2 sm:mt-0 w-full sm:w-auto border-t sm:border-t-0 border-slate-100 pt-4 sm:pt-0">
+                                                    <span className="text-[10px] font-mono font-bold text-slate-500 bg-slate-50 px-3 py-1 rounded-full border border-slate-100 uppercase tracking-widest shadow-sm">
+                                                        {formatDate(achieve.date)}
+                                                    </span>
+                                                    {achieve.image && (
+                                                        <div className="mt-auto">
+                                                            <button
+                                                                onClick={() => setSelectedImage(achieve.image)}
+                                                                className="flex items-center justify-center w-10 h-10 rounded-full bg-indigo-50 hover:bg-indigo-600 group/btn transition-all duration-300 border border-indigo-100 hover:border-indigo-600 cursor-pointer shadow-sm"
+                                                                title="View Image"
+                                                            >
+                                                                <FaImage className="text-indigo-500 group-hover/btn:text-white transition-colors text-base" />
+                                                            </button>
+                                                        </div>
+                                                    )}
+                                                </div>
                                             </div>
                                         </div>
                                     ))}
@@ -248,6 +241,33 @@ const Certifications = () => {
                     </div>
                 )}
             </div>
+
+            {/* Image Popup Modal */}
+            <>
+                {selectedImage && (
+                    <div
+                        onClick={() => setSelectedImage(null)}
+                        className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/80 backdrop-blur-sm"
+                    >
+                        <div
+                            onClick={(e) => e.stopPropagation()}
+                            className="relative max-w-4xl w-full bg-slate-50 rounded-2xl overflow-hidden shadow-2xl border border-slate-800"
+                        >
+                            <button
+                                onClick={() => setSelectedImage(null)}
+                                className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-slate-900/50 backdrop-blur-md flex items-center justify-center text-white hover:bg-red-500 hover:text-white transition-colors duration-300 border border-white/20"
+                            >
+                                <FaTimes size={16} />
+                            </button>
+                            <img
+                                src={selectedImage}
+                                alt="Achievement Full Size"
+                                className="w-full h-auto max-h-[80vh] object-contain"
+                            />
+                        </div>
+                    </div>
+                )}
+            </>
         </section>
     );
 };

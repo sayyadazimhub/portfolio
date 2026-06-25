@@ -133,7 +133,7 @@ const FeaturedProjects = () => {
                                 return (
                                     <div
                                         key={project._id || index}
-                                        className="absolute w-[85%] sm:w-[500px] md:w-[700px] lg:w-[900px] lg:h-[90%] md:h-[80%] sm:h-[70%] h-full cursor-pointer"
+                                        className="absolute w-[85%] sm:w-[500px] md:w-[700px] lg:w-[900px] lg:h-[90%] md:h-[80%] sm:h-[70%] h-full cursor-pointer will-change-transform"
                                         style={{
                                             transform: `translateX(${translateX}%) scale(${scale})`,
                                             zIndex: zIndex,
@@ -145,7 +145,7 @@ const FeaturedProjects = () => {
                                     >
                                         <div
                                             onClick={() => navigate(`/projects/${project._id}`)}
-                                            className="relative w-full h-full rounded-2xl md:rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.3)] border-[3px] border-white hover:border-white transition-colors duration-500 group bg-white"
+                                            className="relative w-full h-full rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl border-[3px] border-white hover:border-white transition-colors duration-500 group bg-white"
                                         >
                                             {/* Image Section - Full Background */}
                                             <div className="absolute inset-0 w-full h-full bg-slate-100 overflow-hidden">
@@ -153,20 +153,21 @@ const FeaturedProjects = () => {
                                                 <img
                                                     src={project.desktopImage?.url || project.image || 'https://via.placeholder.com/800x600'}
                                                     alt={project.projectName || project.title}
+                                                    loading="lazy"
                                                     className="w-full h-full object-fill object-top transition-transform duration-700 ease-[cubic-bezier(0.2,0.8,0.2,1)] group-hover:scale-105 relative z-0"
                                                 />
                                                 {/* Protective Dark Gradient for Text Readability */}
                                                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-10 pointer-events-none"></div>
                                             </div>
 
-                                            {/* Content Section - Glassmorphism Overlay */}
-                                            <div className="absolute bottom-0 left-0 right-0 flex flex-col p-4 sm:p-5 bg-white/20 backdrop-blur-[0.2px] border-t border-white/40 z-20 transition-colors duration-500">
+                                            {/* Content Section - Optimized without blur */}
+                                            <div className="absolute bottom-0 left-0 right-0 flex flex-col p-4 sm:p-5 bg-slate-900/80 border-t border-white/20 z-20 transition-colors duration-500">
                                                 <div className="flex items-center justify-between gap-4">
                                                     <div className="flex flex-col flex-1 min-w-0">
                                                         {/* Type Badge */}
                                                         <div className="flex items-center gap-2 mb-1">
-                                                            <div className="w-4 h-[2px] bg-indigo-600"></div>
-                                                            <span className="font-mono text-[9px] sm:text-[10px] font-bold tracking-[0.2em] text-indigo-400 uppercase">
+                                                            <div className="w-4 h-[2px] bg-indigo-500"></div>
+                                                            <span className="font-mono text-[9px] sm:text-[10px] font-bold tracking-[0.2em] text-indigo-300 uppercase">
                                                                 {project.projectType || 'Case Study'}
                                                             </span>
                                                         </div>
@@ -183,15 +184,15 @@ const FeaturedProjects = () => {
                                                     </div>
 
                                                     {/* Action Arrow */}
-                                                    <div className="shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-white/30 bg-black/20 flex items-center justify-center text-white group-hover:bg-white group-hover:text-indigo-600 group-hover:border-white shadow-sm hover:shadow-md transition-all duration-300 ml-auto mt-auto backdrop-blur-sm">
+                                                    <div className="shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-white/30 bg-black/40 flex items-center justify-center text-white group-hover:bg-white group-hover:text-indigo-600 group-hover:border-white shadow-sm hover:shadow-md transition-all duration-300 ml-auto mt-auto">
                                                         <FaArrowRight className="w-3 h-3 md:w-4 md:h-4 -rotate-45 group-hover:rotate-0 transition-transform duration-300" />
                                                     </div>
                                                 </div>
                                             </div>
 
-                                            {/* Inactive cards overlay */}
+                                            {/* Inactive cards overlay - Optimized without blur */}
                                             {diff !== 0 && (
-                                                <div className="absolute inset-0 bg-slate-900/60 z-40 pointer-events-none transition-opacity duration-700 backdrop-blur-[2px]" />
+                                                <div className="absolute inset-0 bg-slate-900/70 z-40 pointer-events-none transition-opacity duration-700" />
                                             )}
                                         </div>
                                     </div>

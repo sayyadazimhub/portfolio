@@ -64,7 +64,7 @@ const Certifications = () => {
                     </h2>
 
                     <p
-                        className="text-sm md:text-base text-slate-800 font-light max-w-2xl mx-auto"
+                        className="text-sm md:text-base text-slate-800 font-medium max-w-2xl mx-auto"
                     >
                         A showcase of continuous learning, professional certifications, and recognized achievements throughout my career.
                     </p>

@@ -3,22 +3,23 @@ import { FaGithub, FaExternalLinkAlt, FaArrowRight } from 'react-icons/fa';
 const ProjectCard = ({ project, index, onClick }) => {
     return (
         <div
-            className="group flex flex-col h-full bg-white rounded-[2rem] border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] hover:border-indigo-100 hover:-translate-y-1 transition-all duration-500 overflow-hidden cursor-pointer"
+            className="group flex flex-col h-full bg-white rounded-[2rem] border border-slate-100 shadow-md hover:shadow-xl hover:border-indigo-100 hover:-translate-y-1 transition-all duration-500 overflow-hidden cursor-pointer will-change-transform"
             onClick={onClick}
         >
             {/* Image Section */}
             <div className="relative w-full aspect-[16/8] bg-slate-100 overflow-hidden border-b border-slate-100">
-                {/* Subtle ambient overlay */}
-                <div className="absolute inset-0 bg-slate-900/5 mix-blend-multiply z-10 pointer-events-none transition-opacity duration-500 group-hover:opacity-0"></div>
+                {/* Subtle ambient overlay without expensive mix-blend */}
+                <div className="absolute inset-0 bg-slate-900/10 z-10 pointer-events-none transition-opacity duration-500 group-hover:opacity-0"></div>
 
                 <img
                     src={project.desktopImage?.url || project.image || 'https://via.placeholder.com/600x400'}
                     alt={project.projectName || project.title}
-                    className="w-full h-full object-fill object-top transition-transform duration-700 ease-[cubic-bezier(0.2,0.8,0.2,1)] group-hover:scale-105 relative z-0"
+                    loading="lazy"
+                    className="w-full h-full object-fill object-top transition-transform duration-700 ease-[cubic-bezier(0.2,0.8,0.2,1)] group-hover:scale-105 relative z-0 will-change-transform"
                 />
 
                 {/* Hover gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none"></div>
             </div>
 
             {/* Content Section */}

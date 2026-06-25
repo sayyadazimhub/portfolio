@@ -167,7 +167,7 @@ const Projects = () => {
             >
               <button
                 onClick={() =>
-                  window.scrollTo({ top: 600, behavior: "smooth" })
+                  window.scrollTo(0, 600)
                 }
                 className="w-full sm:w-auto group relative z-10 inline-flex items-center justify-center gap-2 sm:gap-3 font-mono text-[11px] sm:text-xs uppercase font-bold tracking-[0.15em] text-white border border-slate-900 rounded-lg overflow-hidden px-5 py-3.5 md:px-6 md:py-4 bg-black bg-[length:200%_auto] bg-[position:200%_center] bg-no-repeat transition-all duration-500 ease-in-out hover:border-blue-600 hover:bg-[position:40%_center] shadow-lg hover:shadow-indigo-500/25 cursor-pointer"
                 style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 531.28 200'%3E%3Cdefs%3E%3Cstyle%3E .shape %7B fill: %232563eb %7D %3C/style%3E%3C/defs%3E%3Cg id='Layer_2' data-name='Layer 2'%3E%3Cg id='Layer_1-2' data-name='Layer 1'%3E%3Cpolygon class='shape' points='415.81 200 0 200 115.47 0 531.28 0 415.81 200' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")" }}
@@ -188,7 +188,7 @@ const Projects = () => {
             className="w-full lg:w-[45%] relative hidden lg:flex justify-center lg:justify-end"
           >
             {/* Refined Hanging Letters Graphic */}
-            <div className="relative w-full max-w-[450px] aspect-square rounded-[2.5rem] bg-white/40 backdrop-blur-3xl shadow-2xl shadow-indigo-500/10 overflow-hidden flex items-center justify-center border border-white/60">
+            <div className="relative w-full max-w-[450px] aspect-square rounded-[2.5rem] bg-white/95 shadow-2xl shadow-indigo-500/10 overflow-hidden flex items-center justify-center border border-white/60">
               {/* Inner Ambient Glows */}
               <div className="absolute -top-20 -right-20 w-80 h-80 bg-indigo-400/20 blur-[80px] rounded-full pointer-events-none"></div>
               <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-cyan-400/20 blur-[80px] rounded-full pointer-events-none"></div>
@@ -221,7 +221,7 @@ const Projects = () => {
 
                       {/* The Letter Card */}
                       <div
-                        className={`w-16 h-16 sm:w-20 sm:h-20 bg-white/95 backdrop-blur-xl rounded-2xl flex items-center justify-center shadow-[0_15px_35px_rgba(0,0,0,0.08)] border border-white relative overflow-hidden ${cardMargin} group`}
+                        className={`w-16 h-16 sm:w-20 sm:h-20 bg-white rounded-2xl flex items-center justify-center shadow-[0_15px_35px_rgba(0,0,0,0.08)] border border-white relative overflow-hidden ${cardMargin} group`}
                       >
                         {/* Connection Joint on Card */}
                         <div className="absolute top-0 w-6 h-2.5 bg-slate-100 rounded-b-md border-b border-x border-slate-200 flex justify-center">
@@ -323,7 +323,7 @@ const Projects = () => {
               <div
                 className="mb-10 sm:mb-12 w-full max-w-7xl mx-auto px-4 sm:px-0 sticky top-24 z-30"
               >
-                <div className="flex flex-row gap-2 md:gap-0 items-center justify-between bg-white/80 backdrop-blur-2xl p-2 md:py-1 md:px-4 rounded-full border border-slate-200 shadow-xl shadow-indigo-500/5">
+                <div className="flex flex-row gap-2 md:gap-0 items-center justify-between bg-white/95 p-2 md:py-1 md:px-4 rounded-full border border-slate-200 shadow-sm shadow-indigo-500/5">
                   {/* Refined Search Bar */}
                   <div className="relative flex-1 min-w-0 w-full lg:max-w-md py-1 md:py-2 px-1 md:px-0">
                     <div className="absolute inset-y-0 left-0 pl-6 lg:pl-4 flex items-center pointer-events-none">
@@ -461,7 +461,7 @@ const Projects = () => {
                     <button
                       onClick={() => {
                         setCurrentPage((prev) => Math.max(prev - 1, 1));
-                        window.scrollTo({ top: 300, behavior: "smooth" });
+                        window.scrollTo(0, 300);
                       }}
                       disabled={currentPage === 1}
                       className="p-2 md:p-3 rounded-lg md:rounded-xl border border-slate-200 bg-white text-slate-500 hover:text-indigo-600 hover:border-indigo-300 hover:shadow-md disabled:opacity-30 disabled:hover:shadow-none disabled:hover:text-slate-500 disabled:hover:border-slate-200 transition-all cursor-pointer"
@@ -475,7 +475,7 @@ const Projects = () => {
                           key={i}
                           onClick={() => {
                             setCurrentPage(i + 1);
-                            window.scrollTo({ top: 300, behavior: "smooth" });
+                            window.scrollTo(0, 300);
                           }}
                           className={`w-9 h-9 md:w-11 md:h-11 rounded-lg md:rounded-xl font-mono text-[10px] md:text-xs font-bold transition-all flex items-center justify-center cursor-pointer ${currentPage === i + 1
                               ? "bg-indigo-600 text-white shadow-lg shadow-indigo-600/30"
@@ -492,7 +492,7 @@ const Projects = () => {
                         setCurrentPage((prev) =>
                           Math.min(prev + 1, totalPages),
                         );
-                        window.scrollTo({ top: 300, behavior: "smooth" });
+                        window.scrollTo(0, 300);
                       }}
                       disabled={currentPage === totalPages}
                       className="p-2 md:p-3 rounded-lg md:rounded-xl border border-slate-200 bg-white text-slate-500 hover:text-indigo-600 hover:border-indigo-300 hover:shadow-md disabled:opacity-30 disabled:hover:shadow-none disabled:hover:text-slate-500 disabled:hover:border-slate-200 transition-all cursor-pointer"

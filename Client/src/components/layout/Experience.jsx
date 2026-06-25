@@ -57,7 +57,7 @@ const Experience = () => {
                     </h2>
 
                     <div>
-                        <p className="text-sm md:text-base text-slate-800 font-light leading-relaxed max-w-2xl mx-auto">
+                        <p className="text-sm md:text-base text-slate-800 font-medium leading-relaxed max-w-2xl mx-auto">
                             A timeline of my professional experience, highlighting key roles, responsibilities, and the impact I've driven across different organizations.
                         </p>
                     </div>

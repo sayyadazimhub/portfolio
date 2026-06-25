@@ -213,6 +213,7 @@ const ProjectDetail = () => {
                                                         <img
                                                             src={project.clientLogo.url}
                                                             alt="Client brand"
+                                                            loading="lazy"
                                                             className="h-full w-full object-contain"
                                                         />
                                                     </div>
@@ -259,6 +260,7 @@ const ProjectDetail = () => {
                                             <img
                                                 src={project.clientLogo.url}
                                                 alt="Client brand"
+                                                loading="lazy"
                                                 className="h-full w-full object-contain"
                                             />
                                         </div>
@@ -285,6 +287,7 @@ const ProjectDetail = () => {
                                                     <img
                                                         src={project.desktopImage.url}
                                                         alt="Desktop layout"
+                                                        loading="lazy"
                                                         className="h-full w-full object-fill"
                                                     />
                                                 </div>
@@ -298,6 +301,7 @@ const ProjectDetail = () => {
                                                     <img
                                                         src={project.image}
                                                         alt="Project cover"
+                                                        loading="lazy"
                                                         className="h-full w-full object-cover"
                                                     />
                                                 </div>
@@ -317,12 +321,13 @@ const ProjectDetail = () => {
                                                             <img
                                                                 src={project.mobileImage.url}
                                                                 alt="Mobile layout"
+                                                                loading="lazy"
                                                                 className="h-full w-full object-fill"
                                                             />
                                                             {/* <div className='absolute top-1 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-black z-10'></div> */}
                                                         </div>
                                                         {/* Mobile Navigation Bar */}
-                                                        <div className="h-4 bg-slate-900/90 backdrop-blur-sm flex items-center justify-center gap-6 border-t border-slate-800/50">
+                                                        <div className="h-4 bg-slate-900 flex items-center justify-center gap-6 border-t border-slate-800/50">
                                                             <svg className="w-2 h-2 text-slate-500" viewBox="0 0 24 24" fill="currentColor"><polygon points="19,4 5,12 19,20" /></svg>
                                                             <svg className="w-2 h-2 text-slate-500" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="8" /></svg>
                                                             <svg className="w-2 h-2 text-slate-500" viewBox="0 0 24 24" fill="currentColor"><rect x="5" y="5" width="14" height="14" rx="2" /></svg>
@@ -431,7 +436,7 @@ const ProjectDetail = () => {
                                     key={p._id || p.id}
                                     onClick={() => {
                                         navigate(`/projects/${p._id || p.id}`);
-                                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                                        window.scrollTo(0, 0);
                                     }}
                                     className="col-span-1 group cursor-pointer p-4 rounded-xl border border-slate-200 hover:border-indigo-600 bg-slate-50 shadow-lg hover:shadow-2xl transition-all duration-500 ease-out flex flex-col"
                                 >
@@ -439,6 +444,7 @@ const ProjectDetail = () => {
                                         <img
                                             src={p.desktopImage?.url || p.image || 'https://via.placeholder.com/600x400'}
                                             alt={p.projectName || p.title}
+                                            loading="lazy"
                                             className="w-full h-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.2,0.8,0.2,1)] group-hover:scale-103"
                                         />
                                         <div className="absolute inset-0 bg-slate-900/5 group-hover:bg-transparent transition-colors duration-500"></div>

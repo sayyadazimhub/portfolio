@@ -24,7 +24,7 @@ const Navbar = () => {
 
     useEffect(() => {
         const handleScroll = () => setScrolled(window.scrollY > 10);
-        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('scroll', handleScroll, { passive: true });
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
@@ -32,7 +32,7 @@ const Navbar = () => {
 
     return (
         <header
-            className={`sticky top-0 z-50 w-full bg-white transition-all duration-300 ${scrolled ? 'shadow-[0_2px_20px_rgba(0,0,0,0.06)] border-b border-slate-200' : 'border-b border-slate-100'
+            className={`sticky top-0 z-50 w-full bg-white transition-shadow duration-300 ${scrolled ? 'shadow-md border-b border-slate-200' : 'border-b border-slate-100'
                 }`}
         >
             {/* Top accent bar */}

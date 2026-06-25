@@ -59,7 +59,7 @@ const Education = () => {
                     </h2>
 
                     <div>
-                        <p className="text-sm md:text-base text-slate-800 font-light leading-relaxed max-w-2xl mx-auto">
+                        <p className="text-sm md:text-base text-slate-800 font-medium leading-relaxed max-w-2xl mx-auto">
                             My educational journey and the academic foundations that have shaped my professional career.
                         </p>
                     </div>

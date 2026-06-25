@@ -63,9 +63,11 @@ app.use('/api/auth', authRoutes);
 
 const PORT = process.env.PORT || 5000;
 
-server.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-});
+if (!process.env.VERCEL) {
+    server.listen(PORT, () => {
+        console.log(`Server running on port ${PORT}`);
+    });
+}
 
-// export default app used for vercel deployment
-// export default serverless(app);
+// Export the app for Vercel serverless deployment
+export default app;

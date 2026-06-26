@@ -115,27 +115,27 @@ const Certifications = () => {
                                     </h3>
                                 </div>
 
-                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mt-8 px-2 md:px-4">
+                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6 mt-6 px-1 md:px-2">
                                     {certificates.map((cert, index) => (
                                         <div
                                             key={cert._id || index}
-                                            className="group relative aspect-[4/3] w-full rounded-2xl overflow-hidden bg-white shadow-sm border border-slate-200 hover:shadow-xl hover:border-indigo-200 transition-all duration-500"
+                                            className="group relative aspect-[4/3] w-full rounded-2xl overflow-hidden bg-white shadow-sm border border-slate-200 hover:shadow-xl hover:border-indigo-200 transition-shadow duration-500"
                                         >
                                             {/* Full Certificate Image */}
-                                            <div className="absolute inset-0 flex items-center justify-center p-5 sm:p-6 bg-slate-50/50 group-hover:bg-white transition-colors duration-500 z-0">
+                                            <div className="absolute inset-0 flex items-center justify-center p-4 bg-slate-50/50 group-hover:bg-white transition-colors duration-500 z-0">
                                                 {cert.certificateImage ? (
                                                     <img
                                                         src={cert.certificateImage}
                                                         alt={cert.title}
-                                                        className="w-full h-full object-contain filter drop-shadow-sm group-hover:drop-shadow-md group-hover:scale-[1.03] transition-all duration-500 ease-out"
+                                                        className="w-full h-full object-contain group-hover:scale-[1.03] transition-transform duration-300 ease-[cubic-bezier(0.23,1,0.32,1)]"
                                                     />
                                                 ) : (
-                                                    <FaCertificate className="text-7xl text-slate-200 group-hover:scale-110 group-hover:text-slate-300 transition-all duration-500" />
+                                                    <FaCertificate className="text-7xl text-slate-200 group-hover:scale-110 group-hover:text-slate-300 transition-all duration-300 ease-[cubic-bezier(0.23,1,0.32,1)]" />
                                                 )}
                                             </div>
 
                                             {/* Bottom Action Bar (Slides up on hover) */}
-                                            <div className="absolute bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md p-4 border-t border-slate-100 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out z-20 flex justify-between items-center shadow-[0_-4px_20px_rgba(0,0,0,0.04)]">
+                                            <div className="absolute bottom-0 left-0 right-0 bg-white p-4 border-t border-slate-100 transform translate-y-0 md:translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] z-20 flex justify-between items-center shadow-[0_-4px_20px_rgba(0,0,0,0.04)] will-change-transform">
                                                 <div className="flex flex-col pr-3 min-w-0">
                                                     <h3 className="text-sm font-bold text-slate-800 truncate mb-1">{cert.title}</h3>
                                                     <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
@@ -152,7 +152,7 @@ const Certifications = () => {
                                                         href={cert.credentialUrl}
                                                         target="_blank"
                                                         rel="noopener noreferrer"
-                                                        className="w-9 h-9 shrink-0 rounded-full bg-indigo-50 flex items-center justify-center text-indigo-600 hover:bg-indigo-600 hover:text-white hover:shadow-md transition-all duration-300"
+                                                        className="w-9 h-9 shrink-0 rounded-full bg-indigo-50 flex items-center justify-center text-indigo-600 hover:bg-indigo-600 hover:text-white hover:shadow-md transition-colors duration-300"
                                                         title="View Credential"
                                                     >
                                                         <FaExternalLinkAlt size={12} />
@@ -181,20 +181,20 @@ const Certifications = () => {
                                     </h3>
                                 </div>
 
-                                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 mt-8">
+                                <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6 mt-6">
                                     {achievements.map((achieve, index) => (
                                         <div
                                             key={achieve._id || index}
-                                            className="group relative flex flex-col justify-between bg-white rounded-[2rem] p-8 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] border border-slate-100 hover:border-indigo-100 transition-all duration-500 overflow-hidden z-10"
+                                            className="group relative flex flex-col justify-between bg-white rounded-2xl p-5 sm:p-6 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] border border-slate-100 hover:border-indigo-100 transition-shadow duration-500 overflow-hidden z-10"
                                         >
                                             {/* Decorative Ambient Background */}
                                             <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-indigo-50 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10"></div>
 
-                                            <div className="relative z-10 flex flex-col sm:flex-row gap-5 sm:gap-6 items-stretch">
+                                            <div className="relative z-10 flex flex-col sm:flex-row gap-4 sm:gap-5 items-stretch">
 
                                                 {/* Left side: Text Content */}
                                                 <div className="flex flex-col flex-grow min-w-0">
-                                                    <div className="flex items-center gap-4 mb-4">
+                                                    <div className="flex items-center gap-3 mb-3">
                                                         <div className="shrink-0 w-14 h-14 rounded-2xl bg-indigo-50 flex items-center justify-center shadow-inner border border-indigo-100/50 group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-500">
                                                             <FaMedal className="text-2xl text-indigo-500" />
                                                         </div>
@@ -216,7 +216,7 @@ const Certifications = () => {
                                                 </div>
 
                                                 {/* right side: Image Content */}
-                                                <div className="flex flex-row sm:flex-col items-center sm:items-end justify-between shrink-0 gap-3 sm:gap-2 mt-2 sm:mt-0 w-full sm:w-auto border-t sm:border-t-0 border-slate-100 pt-4 sm:pt-0">
+                                                <div className="flex flex-row sm:flex-col items-center sm:items-end justify-between shrink-0 gap-3 sm:gap-2 mt-1 sm:mt-0 w-full sm:w-auto">
                                                     <span className="text-[10px] font-mono font-bold text-slate-500 bg-slate-50 px-3 py-1 rounded-full border border-slate-100 uppercase tracking-widest shadow-sm">
                                                         {formatDate(achieve.date)}
                                                     </span>
@@ -224,7 +224,7 @@ const Certifications = () => {
                                                         <div className="mt-auto">
                                                             <button
                                                                 onClick={() => setSelectedImage(achieve.image)}
-                                                                className="flex items-center justify-center w-10 h-10 rounded-full bg-indigo-50 hover:bg-indigo-600 group/btn transition-all duration-300 border border-indigo-100 hover:border-indigo-600 cursor-pointer shadow-sm"
+                                                                className="flex items-center justify-center w-10 h-10 rounded-full bg-indigo-50 hover:bg-indigo-600 group/btn transition-colors duration-300 border border-indigo-100 hover:border-indigo-600 cursor-pointer shadow-sm"
                                                                 title="View Image"
                                                             >
                                                                 <FaImage className="text-indigo-500 group-hover/btn:text-white transition-colors text-base" />

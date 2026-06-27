@@ -92,8 +92,7 @@ const Hero = () => {
                         <h1
                             className="font-serif text-5xl sm:text-7xl lg:text-[5.5rem] font-black mb-6 leading-[1.05] tracking-tight text-black"
                         >
-                            Sayyad <br className="hidden sm:block lg:hidden" />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-cyan-500 relative inline-block">
+                            Sayyad <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-cyan-500 relative inline-block">
                                 Azim
                                 {/* Underline highlight */}
                                 <svg className="absolute w-full h-3 -bottom-1 left-0 text-cyan-400/30" viewBox="0 0 100 20" preserveAspectRatio="none">

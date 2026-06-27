@@ -7,31 +7,56 @@ const api = axios.create({
     },
 });
 
+const cache = new Map();
+const CACHE_TTL = 5 * 60 * 1000; // 5 minutes cache duration
+
+const withCache = (key, fetcher) => {
+    if (cache.has(key)) {
+        const cached = cache.get(key);
+        if (Date.now() < cached.expiry) {
+            return cached.promise;
+        }
+        cache.delete(key);
+    }
+    
+    const promise = fetcher().catch(err => {
+        cache.delete(key);
+        throw err;
+    });
+
+    cache.set(key, {
+        promise,
+        expiry: Date.now() + CACHE_TTL
+    });
+
+    return promise;
+};
+
 // API service methods
 export const apiService = {
     // Projects
-    getProjects: () => api.get('/projects'),
+    getProjects: () => withCache('projects', () => api.get('/projects')),
 
     // Skills
-    getSkills: () => api.get('/skills'),
+    getSkills: () => withCache('skills', () => api.get('/skills')),
 
     // Experience
-    getExperience: () => api.get('/experience'),
+    getExperience: () => withCache('experience', () => api.get('/experience')),
 
     // Education, Honors & Certifications
-    getEducation: () => api.get('/education'),
-    getCertificates: () => api.get('/certificates'),
-    getAchievements: () => api.get('/achievements'),
-    getResume: () => api.get('/resume'),
+    getEducation: () => withCache('education', () => api.get('/education')),
+    getCertificates: () => withCache('certificates', () => api.get('/certificates')),
+    getAchievements: () => withCache('achievements', () => api.get('/achievements')),
+    getResume: () => withCache('resume', () => api.get('/resume')),
 
     // Contact
     sendContact: (data) => api.post('/contact', data),
 
     // About Me
-    getAboutMe: () => api.get('/aboutme'),
+    getAboutMe: () => withCache('aboutme', () => api.get('/aboutme')),
 
     // Testimonials
-    getTestimonials: (status) => api.get('/testimonials', { params: { status } }),
+    getTestimonials: (status) => withCache(`testimonials_${status}`, () => api.get('/testimonials', { params: { status } })),
     postTestimonial: (formData) => api.post('/testimonials', formData, {
         headers: {
             'Content-Type': 'multipart/form-data',

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { FaArrowRight, FaReact, FaNodeJs, FaDatabase, FaAws, FaGithub, FaLinkedin } from 'react-icons/fa';
+import { FaArrowRight, FaReact, FaNodeJs, FaDatabase, FaAws, FaGithub, FaLinkedin, FaLinkedinIn, FaTwitter } from 'react-icons/fa';
 import { apiService } from '../../utils/api';
 import logo from '../../assets/logo.png';
 
@@ -168,74 +168,23 @@ const Hero = () => {
                                 href="https://github.com/sayyadazimhub"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="relative w-[65%] h-[65%] rounded-full overflow-hidden shadow-2xl shadow-indigo-900/20 ring-[12px] ring-white z-10 bg-white flex items-center justify-center p-0 cursor-pointer group block"
+                                className="relative w-[65%] h-[65%] rounded-full overflow-hidden shadow-2xl shadow-indigo-900/20 ring-[12px] ring-white z-10 flex items-center justify-center p-0 cursor-pointer group block"
                             >
                                 <img
                                     src="https://github.com/sayyadazimhub.png"
                                     alt="Sayyad Azim GitHub"
-                                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500/20 to-transparent mix-blend-overlay pointer-events-none"></div>
                             </a>
 
                             {/* Elegant Floating Badges */}
-                            <motion.div
-                                animate={floatingAnimation(0)}
-                                className="absolute top-[12%] right-[2%] z-20 bg-white/90 backdrop-blur-xl px-4 py-3 rounded-2xl shadow-xl shadow-cyan-900/5 border border-white/50 flex items-center gap-3 cursor-default hover:scale-105 hover:shadow-cyan-500/20 transition-all duration-300"
-                            >
-                                <div className="w-8 h-8 rounded-full bg-cyan-50 flex items-center justify-center">
-                                    <FaReact className="text-xl text-cyan-500" />
-                                </div>
-                                <div className="flex flex-col">
-                                    <span className="font-mono text-[10px] uppercase tracking-wider text-slate-400 font-bold leading-none">Frontend</span>
-                                    <span className="font-sans text-sm font-bold text-slate-800">React</span>
-                                </div>
-                            </motion.div>
-
-                            <motion.div
-                                animate={floatingAnimation(1)}
-                                className="absolute bottom-[18%] -left-[5%] z-20 bg-white/90 backdrop-blur-xl px-4 py-3 rounded-2xl shadow-xl shadow-green-900/5 border border-white/50 flex items-center gap-3 cursor-default hover:scale-105 hover:shadow-green-500/20 transition-all duration-300"
-                            >
-                                <div className="w-8 h-8 rounded-full bg-green-50 flex items-center justify-center">
-                                    <FaNodeJs className="text-xl text-green-600" />
-                                </div>
-                                <div className="flex flex-col">
-                                    <span className="font-mono text-[10px] uppercase tracking-wider text-slate-400 font-bold leading-none">Backend</span>
-                                    <span className="font-sans text-sm font-bold text-slate-800">Node.js</span>
-                                </div>
-                            </motion.div>
-
-                            <motion.div
-                                animate={floatingAnimation(0.5)}
-                                className="absolute bottom-[5%] right-[10%] z-20 bg-white/90 backdrop-blur-xl px-4 py-3 rounded-2xl shadow-xl shadow-orange-900/5 border border-white/50 flex items-center gap-3 cursor-default hover:scale-105 hover:shadow-orange-500/20 transition-all duration-300"
-                            >
-                                <div className="w-8 h-8 rounded-full bg-orange-50 flex items-center justify-center">
-                                    <FaAws className="text-xl text-orange-500" />
-                                </div>
-                                <div className="flex flex-col">
-                                    <span className="font-mono text-[10px] uppercase tracking-wider text-slate-400 font-bold leading-none">Cloud</span>
-                                    <span className="font-sans text-sm font-bold text-slate-800">AWS</span>
-                                </div>
-                            </motion.div>
-
-                            {/* Experience Badge */}
-                            <motion.div
-                                animate={floatingAnimation(1.5)}
-                                className="absolute top-[20%] -left-[8%] z-10 w-24 h-24 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-full shadow-lg shadow-indigo-600/30 flex items-center justify-center border-4 border-white cursor-default hover:scale-105 transition-transform duration-300"
-                            >
-                                <div className="text-center text-white">
-                                    <div className="font-black text-2xl leading-none">2+</div>
-                                    <div className="font-mono text-[8px] uppercase tracking-widest mt-1 opacity-80">Years<br />Exp</div>
-                                </div>
-                            </motion.div>
-
-                            {/* GitHub Floating Badge */}
-                            {/* <motion.a
+                            <motion.a
                                 href="https://github.com/sayyadazimhub"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                animate={floatingAnimation(2)}
-                                className="absolute top-[2%] left-[35%] z-20 bg-white/90 backdrop-blur-xl px-4 py-3 rounded-2xl shadow-xl shadow-slate-900/5 border border-white/50 flex items-center gap-3 cursor-pointer hover:scale-105 hover:shadow-slate-500/20 transition-all duration-300"
+                                animate={floatingAnimation(1)}
+                                className="absolute bottom-[16%] -left-[3%] z-20 bg-white px-4 py-3 rounded-2xl shadow-xl shadow-sky-900/10 border border-slate-100 flex items-center gap-3 cursor-pointer hover:scale-105 hover:shadow-sky-500/20 transition-all duration-300 transform-gpu antialiased"
                             >
                                 <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center">
                                     <FaGithub className="text-xl text-slate-800" />
@@ -244,15 +193,14 @@ const Hero = () => {
                                     <span className="font-mono text-[10px] uppercase tracking-wider text-slate-400 font-bold leading-none">Open Source</span>
                                     <span className="font-sans text-sm font-bold text-slate-800">GitHub</span>
                                 </div>
-                            </motion.a> */}
+                            </motion.a>
 
-                            {/* LinkedIn Floating Badge */}
-                            {/* <motion.a
+                            <motion.a
                                 href="https://linkedin.com/in/sayyadazim"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                animate={floatingAnimation(2.5)}
-                                className="absolute top-[50%] -right-[10%] z-20 bg-white/90 backdrop-blur-xl px-4 py-3 rounded-2xl shadow-xl shadow-blue-900/5 border border-white/50 flex items-center gap-3 cursor-pointer hover:scale-105 hover:shadow-blue-500/20 transition-all duration-300"
+                                animate={floatingAnimation(0.5)}
+                                className="absolute bottom-[30%] -right-[10%] z-20 bg-white px-4 py-3 rounded-2xl shadow-xl shadow-blue-900/10 border border-slate-100 flex items-center gap-3 cursor-pointer hover:scale-105 hover:shadow-blue-500/20 transition-all duration-300 transform-gpu antialiased"
                             >
                                 <div className="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center">
                                     <FaLinkedin className="text-xl text-blue-600" />
@@ -261,7 +209,18 @@ const Hero = () => {
                                     <span className="font-mono text-[10px] uppercase tracking-wider text-slate-400 font-bold leading-none">Connect</span>
                                     <span className="font-sans text-sm font-bold text-slate-800">LinkedIn</span>
                                 </div>
-                            </motion.a> */}
+                            </motion.a>
+
+                            {/* Experience Badge */}
+                            <motion.div
+                                animate={floatingAnimation(1.5)}
+                                className="absolute top-[2%] left-[20%] z-10 w-24 h-24 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-full shadow-lg shadow-indigo-600/30 flex items-center justify-center border-4 border-white cursor-default hover:scale-105 transition-transform duration-300"
+                            >
+                                <div className="text-center text-white">
+                                    <div className="font-black text-2xl leading-none">2+</div>
+                                    <div className="font-mono text-[8px] uppercase tracking-widest mt-1 opacity-80">Years<br />Exp</div>
+                                </div>
+                            </motion.div>
 
                         </div>
                     </div>

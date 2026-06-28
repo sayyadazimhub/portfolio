@@ -16,8 +16,11 @@ const Certifications = () => {
                     apiService.getAchievements()
                 ]);
 
-                setCertificates(Array.isArray(certRes.data) ? certRes.data : (certRes.data?.data || []));
-                setAchievements(Array.isArray(achRes.data) ? achRes.data : (achRes.data?.data || []));
+                const certData = Array.isArray(certRes.data) ? certRes.data : (certRes.data?.data || []);
+                const achData = Array.isArray(achRes.data) ? achRes.data : (achRes.data?.data || []);
+
+                setCertificates(certData.filter(c => c.status !== false).sort((a, b) => (a.order || 0) - (b.order || 0)));
+                setAchievements(achData.filter(a => a.status !== false).sort((a, b) => (a.order || 0) - (b.order || 0)));
             } catch (error) {
                 console.error('Error fetching honors and certifications:', error);
             } finally {
@@ -137,14 +140,14 @@ const Certifications = () => {
                                             {/* Bottom Action Bar (Slides up on hover) */}
                                             <div className="absolute bottom-0 left-0 right-0 bg-white p-4 border-t border-slate-100 transform translate-y-0 md:translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] z-20 flex justify-between items-center shadow-[0_-4px_20px_rgba(0,0,0,0.04)] will-change-transform">
                                                 <div className="flex flex-col pr-3 min-w-0">
-                                                    <h3 className="text-sm font-bold text-slate-800 truncate mb-1">{cert.title}</h3>
+                                                    <h3 className="text-sm font-bold font-serif text-slate-800 truncate mb-1">{cert.title}</h3>
                                                     <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
-                                                        <span className="text-[10px] font-bold text-indigo-600 uppercase tracking-wider">{cert.issuer}</span>
-                                                        {cert.credentialId && (
+                                                        <span className="text-[10px] font-mono font-bold text-indigo-600 uppercase tracking-wider"><span className="text-slate-500 pr-2">Issuer:</span>{cert.issuer}</span>
+                                                        {/* {cert.credentialId && (
                                                             <span className="text-[9px] font-mono font-medium text-slate-500 bg-slate-100/80 px-1.5 py-0.5 rounded truncate max-w-[110px]">
                                                                 ID: {cert.credentialId}
                                                             </span>
-                                                        )}
+                                                        )} */}
                                                     </div>
                                                 </div>
                                                 {cert.credentialUrl ? (
@@ -217,9 +220,9 @@ const Certifications = () => {
 
                                                 {/* right side: Image Content */}
                                                 <div className="flex flex-row sm:flex-col items-center sm:items-end justify-between shrink-0 gap-3 sm:gap-2 mt-1 sm:mt-0 w-full sm:w-auto">
-                                                    <span className="text-[10px] font-mono font-bold text-slate-500 bg-slate-50 px-3 py-1 rounded-full border border-slate-100 uppercase tracking-widest shadow-sm">
+                                                    {/* <span className="text-[10px] font-mono font-bold text-slate-500 bg-slate-50 px-3 py-1 rounded-full border border-slate-100 uppercase tracking-widest shadow-sm">
                                                         {formatDate(achieve.date)}
-                                                    </span>
+                                                    </span> */}
                                                     {achieve.image && (
                                                         <div className="mt-auto">
                                                             <button

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { apiService } from '../../utils/api';
-import { FaPaperPlane, FaEnvelope, FaPhoneAlt, FaMapMarkerAlt, FaCode } from 'react-icons/fa';
+import { FaPaperPlane, FaEnvelope, FaPhoneAlt, FaMapMarkerAlt, FaCode, FaLinkedin, FaGithub } from 'react-icons/fa';
 import toast from 'react-hot-toast';
 
 const ContactForm = () => {
@@ -82,45 +82,67 @@ const ContactForm = () => {
                             </p>
                         </div>
 
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-3 sm:gap-4 mt-8 w-full">
+                        <div className="flex flex-col gap-3 mt-6 w-full max-w-sm mx-auto lg:mx-0">
                             {/* Email Card */}
-                            <div className="flex items-center gap-4 p-4 sm:p-5 rounded-[1.5rem] bg-white border border-slate-100 shadow-sm hover:shadow-lg hover:border-indigo-100 transition-all duration-500 group w-full cursor-pointer">
-                                <div className="w-12 h-12 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-600 group-hover:bg-indigo-50 group-hover:text-indigo-600 group-hover:border-indigo-200 transition-all duration-500 shrink-0">
-                                    <FaEnvelope size={16} />
+                            <div className="flex items-center gap-3.5 p-3 rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-md hover:border-indigo-100 transition-all duration-300 group w-full">
+                                <div className="w-10 h-10 rounded-xl bg-indigo-50/50 border border-indigo-100/50 flex items-center justify-center text-indigo-600 group-hover:bg-indigo-50 group-hover:border-indigo-200 transition-all duration-300 shrink-0">
+                                    <FaEnvelope size={14} />
                                 </div>
-                                <div className="text-left overflow-hidden">
-                                    <h4 className="text-slate-400 font-mono text-[11px] font-bold mb-1 uppercase tracking-widest">Email</h4>
-                                    <a href="mailto:azimsayyad90@gmail.com" className="text-sm sm:text-base font-bold text-slate-900 group-hover:text-indigo-600 transition-colors truncate block">
+                                <div className="text-left overflow-hidden flex-1">
+                                    <h4 className="text-slate-400 font-mono text-[10px] font-bold uppercase tracking-widest leading-none mb-1">Email</h4>
+                                    <a href="mailto:azimsayyad90@gmail.com" className="text-sm font-mono font-semibold text-slate-800 group-hover:text-indigo-600 transition-colors truncate block">
                                         azimsayyad90@gmail.com
                                     </a>
                                 </div>
                             </div>
 
                             {/* Phone Card */}
-                            <div className="flex items-center gap-4 p-4 sm:p-5 rounded-[1.5rem] bg-white border border-slate-100 shadow-sm hover:shadow-lg hover:border-indigo-100 transition-all duration-500 group w-full cursor-pointer">
-                                <div className="w-12 h-12 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-600 group-hover:bg-indigo-50 group-hover:text-indigo-600 group-hover:border-indigo-200 transition-all duration-500 shrink-0">
+                            <div className="flex items-center gap-3.5 p-3 rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-md hover:border-indigo-100 transition-all duration-300 group w-full">
+                                <div className="w-10 h-10 rounded-xl bg-indigo-50/50 border border-indigo-100/50 flex items-center justify-center text-indigo-600 group-hover:bg-indigo-50 group-hover:border-indigo-200 transition-all duration-300 shrink-0">
                                     <FaPhoneAlt size={14} />
                                 </div>
-                                <div className="text-left overflow-hidden">
-                                    <h4 className="text-slate-400 font-mono text-[11px] font-bold mb-1 uppercase tracking-widest">Phone</h4>
-                                    <a href="tel:+919075909896" className="text-sm sm:text-base font-bold text-slate-900 group-hover:text-indigo-600 transition-colors truncate block">
+                                <div className="text-left overflow-hidden flex-1">
+                                    <h4 className="text-slate-400 font-mono text-[10px] font-bold uppercase tracking-widest leading-none mb-1">Phone</h4>
+                                    <a href="tel:+919075909896" className="text-sm font-mono font-semibold text-slate-800 group-hover:text-indigo-600 transition-colors truncate block">
                                         +91-9075909896
                                     </a>
                                 </div>
                             </div>
 
                             {/* Location Card */}
-                            <div className="flex items-center gap-4 p-4 sm:p-5 rounded-[1.5rem] bg-white border border-slate-100 shadow-sm hover:shadow-lg hover:border-indigo-100 transition-all duration-500 group w-full cursor-pointer">
-                                <div className="w-12 h-12 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-600 group-hover:bg-indigo-50 group-hover:text-indigo-600 group-hover:border-indigo-200 transition-all duration-500 shrink-0">
-                                    <FaMapMarkerAlt size={16} />
+                            <div className="flex items-center gap-3.5 p-3 rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-md hover:border-indigo-100 transition-all duration-300 group w-full">
+                                <div className="w-10 h-10 rounded-xl bg-indigo-50/50 border border-indigo-100/50 flex items-center justify-center text-indigo-600 group-hover:bg-indigo-50 group-hover:border-indigo-200 transition-all duration-300 shrink-0">
+                                    <FaMapMarkerAlt size={14} />
                                 </div>
-                                <div className="text-left overflow-hidden">
-                                    <h4 className="text-slate-400 font-mono text-[11px] font-bold mb-1 uppercase tracking-widest">Location</h4>
-                                    <span className="text-sm sm:text-base font-bold text-slate-900 group-hover:text-indigo-600 transition-colors truncate block">
+                                <div className="text-left overflow-hidden flex-1">
+                                    <h4 className="text-slate-400 font-mono text-[10px] font-bold uppercase tracking-widest leading-none mb-1">Location</h4>
+                                    <span className="text-sm font-mono font-semibold text-slate-800 group-hover:text-indigo-600 transition-colors truncate block">
                                         India
                                     </span>
                                 </div>
                             </div>
+                        </div>
+
+                        {/* Social Links Row */}
+                        <div className="flex items-center justify-center lg:justify-start gap-3 mt-4 sm:mt-5 w-full max-w-sm mx-auto lg:mx-0">
+                            <a
+                                href="https://linkedin.com/in/sayyadazim"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center justify-center gap-2 px-4 py-3 sm:py-3.5 rounded-xl bg-white border border-slate-100 shadow-sm hover:shadow-md hover:border-blue-200 text-slate-600 hover:text-blue-600 transition-all duration-300 group cursor-pointer w-fit"
+                            >
+                                <FaLinkedin size={16} className="group-hover:text-blue-600 transition-colors" />
+                                <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-slate-700 group-hover:text-blue-600 transition-colors">LinkedIn</span>
+                            </a>
+                            <a
+                                href="https://github.com/sayyadazimhub"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center justify-center gap-2 px-4 py-3 sm:py-3.5 rounded-xl bg-white border border-slate-100 shadow-sm hover:shadow-md hover:border-slate-300 text-slate-600 hover:text-black transition-all duration-300 group cursor-pointer w-fit"
+                            >
+                                <FaGithub size={16} className="group-hover:text-black transition-colors" />
+                                <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-slate-700 group-hover:text-black transition-colors">GitHub</span>
+                            </a>
                         </div>
                     </div>
 

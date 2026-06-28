@@ -40,21 +40,19 @@ const About = () => {
                     setResumeUrl(resumeData.resumeUrl);
                 }
                 
-                // Calculate total years of experience based on earliest start date
+                // Calculate total years of experience by summing durations of all roles
                 let yearsExperience = 0;
                 if (experiences && experiences.length > 0) {
-                    const validDates = experiences
-                        .map(exp => new Date(exp.startDate))
-                        .filter(date => !isNaN(date.getTime()));
-                        
-                    if (validDates.length > 0) {
-                        const earliestDate = new Date(Math.min(...validDates));
-                        const now = new Date();
-                        // Calculate exact years difference
-                        const diffTime = Math.abs(now - earliestDate);
-                        const diffYears = diffTime / (1000 * 60 * 60 * 24 * 365.25);
-                        yearsExperience = Math.floor(diffYears);
-                    }
+                    let totalTime = 0;
+                    experiences.forEach(exp => {
+                        const start = new Date(exp.startDate);
+                        const end = exp.endDate ? new Date(exp.endDate) : new Date();
+                        if (!isNaN(start.getTime()) && !isNaN(end.getTime())) {
+                            totalTime += Math.max(0, end - start);
+                        }
+                    });
+                    const diffYears = totalTime / (1000 * 60 * 60 * 24 * 365.25);
+                    yearsExperience = Math.ceil(diffYears);
                 }
                 
                 setStats({
@@ -215,7 +213,7 @@ const About = () => {
                                         <FaGraduationCap className="text-base sm:text-lg" />
                                     </div>
                                     <div className="flex flex-col justify-center">
-                                        <h4 className="text-xl sm:text-2xl font-black text-slate-900 leading-none mb-1">{stats.yearsExperience > 0 ? stats.yearsExperience : 1}<span className="text-rose-500">+</span></h4>
+                                        <h4 className="text-xl sm:text-2xl font-black text-slate-900 leading-none mb-1">{stats.yearsExperience > 0 ? stats.yearsExperience : 0}<span className="text-rose-500">+</span></h4>
                                         <p className="text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-slate-600 leading-none">Yrs Exp</p>
                                     </div>
                                 </div>

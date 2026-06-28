@@ -7,20 +7,39 @@ import logo from '../../assets/logo.png';
 
 const Hero = () => {
     const [aboutData, setAboutData] = useState(null);
+    const [yearsExperience, setYearsExperience] = useState(1);
 
     useEffect(() => {
-        const fetchAbout = async () => {
+        const fetchHeroData = async () => {
             try {
-                const res = await apiService.getAbout();
+                const [aboutRes, expRes] = await Promise.all([
+                    apiService.getAbout(),
+                    apiService.getExperience()
+                ]);
                 // Check if data is array or object and get the first item if array
-                const data = Array.isArray(res.data) ? res.data[0] : (res.data?.data?.[0] || res.data?.data || res.data);
+                const data = Array.isArray(aboutRes.data) ? aboutRes.data[0] : (aboutRes.data?.data?.[0] || aboutRes.data?.data || aboutRes.data);
                 setAboutData(data);
+                
+                const experiences = Array.isArray(expRes.data) ? expRes.data : (expRes.data?.data || []);
+                let expYears = 0;
+                if (experiences && experiences.length > 0) {
+                    let totalTime = 0;
+                    experiences.forEach(exp => {
+                        const start = new Date(exp.startDate);
+                        const end = exp.endDate ? new Date(exp.endDate) : new Date();
+                        if (!isNaN(start.getTime()) && !isNaN(end.getTime())) {
+                            totalTime += Math.max(0, end - start);
+                        }
+                    });
+                    expYears = Math.ceil(totalTime / (1000 * 60 * 60 * 24 * 365.25));
+                }
+                setYearsExperience(expYears > 0 ? expYears : 1);
             } catch (err) {
                 console.error("Failed to load hero data", err);
             }
         };
 
-        fetchAbout();
+        fetchHeroData();
     }, []);
 
     // Floating animation for the icons
@@ -105,11 +124,11 @@ const Hero = () => {
                         <div
                             className="flex flex-wrap items-center justify-center lg:justify-start gap-3 mb-8 font-mono text-[10px] sm:text-xs uppercase tracking-[0.15em] text-slate-800 font-bold"
                         >
-                            <span className="bg-slate-100 px-3 py-1 rounded-md">Full-Stack Dev</span>
-                            <span className="text-indigo-400 font-black">+</span>
+                            <span className="bg-slate-100 px-3 py-1 rounded-md">Full-Stack Developer</span>
+                            {/* <span className="text-indigo-400 font-black">+</span>
                             <span className="bg-slate-100 px-3 py-1 rounded-md">Cloud Solutions</span>
                             <span className="text-indigo-400 font-black">+</span>
-                            <span className="bg-slate-100 px-3 py-1 rounded-md">Power BI</span>
+                            <span className="bg-slate-100 px-3 py-1 rounded-md">Power BI</span> */}
                         </div>
 
                         {/* Description */}
@@ -216,7 +235,7 @@ const Hero = () => {
                                 className="absolute top-[2%] left-[20%] z-10 w-24 h-24 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-full shadow-lg shadow-indigo-600/30 flex items-center justify-center border-4 border-white cursor-default hover:scale-105 transition-transform duration-300"
                             >
                                 <div className="text-center text-white">
-                                    <div className="font-black text-2xl leading-none">2+</div>
+                                    <div className="font-black text-2xl leading-none">{yearsExperience}+</div>
                                     <div className="font-mono text-[8px] uppercase tracking-widest mt-1 opacity-80">Years<br />Exp</div>
                                 </div>
                             </motion.div>

@@ -197,7 +197,7 @@ const ProjectDetail = () => {
                                         <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-pulse"></span>
                                         {project.projectType || 'Full Stack'}
                                     </div>
-                                    <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-black font-serif tracking-tight leading-[1.1]">
+                                    <h1 className="text-2xl sm:text-3xl md:text-4xl font-black text-black font-serif tracking-tight leading-[1.1]">
                                         {project.projectName || project.title}
                                     </h1>
                                 </div>
@@ -356,7 +356,7 @@ const ProjectDetail = () => {
                                 {/* Description */}
                                 <div>
                                     <h3 className="text-xs font-bold uppercase tracking-wider text-slate-600 mb-2">Description</h3>
-                                    <p className="text-slate-950 text-base leading-relaxed whitespace-pre-line font-medium">
+                                    <p className="text-slate-950 text-justify text-base leading-relaxed whitespace-pre-line font-medium">
                                         {project.description}
                                     </p>
                                 </div>

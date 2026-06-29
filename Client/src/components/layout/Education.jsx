@@ -163,7 +163,7 @@ const Education = () => {
                                         {educationList[0].description && (
                                             <div className="relative mb-5 md:mb-6 bg-slate-50/80 rounded-md p-4 sm:p-5 border border-slate-100">
                                                 <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-indigo-400 to-purple-400 rounded-l-md"></div>
-                                                <p className="text-slate-800 leading-relaxed text-sm sm:text-base font-medium">
+                                                <p className="text-slate-800 text-justify leading-relaxed text-sm sm:text-base font-medium">
                                                     {educationList[0].description}
                                                 </p>
                                             </div>
@@ -174,23 +174,23 @@ const Education = () => {
                                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mt-5 border-t border-slate-100/60 pt-4">
                                                 {educationList[0].fieldOfStudy && (
                                                     <div className="group/meta font-mono flex items-start gap-3.5 bg-white p-3.5 sm:p-4 rounded-2xl border border-indigo-100 shadow-[0_2px_10px_-3px_rgba(0,0,0,0.02)] transition-all duration-300">
-                                                        <div className="mt-0.5 bg-indigo-100/50 md:bg-indigo-50/50 md:group-hover:bg-indigo-100/50 p-2.5 rounded-xl text-indigo-600 md:text-gray-500 md:group-hover:text-indigo-600 transition-all duration-300">
+                                                        <div className="mt-0.5 bg-indigo-100/50 md:bg-indigo-50/50 md:group-hover:bg-indigo-100/50 p-2.5 rounded-xl text-indigo-600 md:group-hover:text-indigo-600 transition-all duration-300">
                                                             <FaGraduationCap size={18} />
                                                         </div>
                                                         <div>
                                                             <p className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-slate-600 mb-1">Specialization</p>
-                                                            <p className="text-sm sm:text-base font-semibold text-blue-600 md:text-slate-900 md:group-hover:text-blue-600 transition-colors duration-300 leading-tight">{educationList[0].fieldOfStudy}</p>
+                                                            <p className="text-sm sm:text-base font-semibold text-blue-600 md:group-hover:text-blue-600 transition-colors duration-300 leading-tight">{educationList[0].fieldOfStudy}</p>
                                                         </div>
                                                     </div>
                                                 )}
                                                 {educationList[0].grade && (
                                                     <div className="group/meta font-mono flex items-start gap-3.5 bg-white p-3.5 sm:p-4 rounded-2xl border border-amber-100 shadow-[0_2px_10px_-3px_rgba(0,0,0,0.02)] transition-all duration-300">
-                                                        <div className="mt-0.5 bg-amber-100/50 md:bg-amber-50/50 md:group-hover:bg-amber-100/50 p-2.5 rounded-xl text-amber-600 md:text-gray-500 md:group-hover:text-amber-600 transition-all duration-300">
+                                                        <div className="mt-0.5 bg-amber-100/50 md:bg-amber-50/50 md:group-hover:bg-amber-100/50 p-2.5 rounded-xl text-amber-600 md:group-hover:text-amber-600 transition-all duration-300">
                                                             <FaAward size={18} />
                                                         </div>
                                                         <div>
                                                             <p className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-slate-600 mb-1">Grade / Score</p>
-                                                            <p className="text-sm sm:text-base font-semibold text-amber-500 md:text-slate-900 md:group-hover:text-amber-500 transition-colors duration-300 leading-tight">{educationList[0].grade}</p>
+                                                            <p className="text-sm sm:text-base font-semibold text-amber-500 md:group-hover:text-amber-500 transition-colors duration-300 leading-tight">{educationList[0].grade}</p>
                                                         </div>
                                                     </div>
                                                 )}

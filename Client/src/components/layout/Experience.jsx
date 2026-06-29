@@ -194,7 +194,7 @@ const Experience = () => {
                                             </div>
                                         </div>
 
-                                        <h3 className="text-2xl md:text-4xl font-serif font-bold text-black mb-2 leading-tight">
+                                        <h3 className="text-2xl md:text-3xl font-serif font-bold text-black mb-2 leading-tight">
                                             {activeExp.jobTitle}
                                         </h3>
 
@@ -211,7 +211,7 @@ const Experience = () => {
                                         )}
 
                                         {activeExp.description && (
-                                            <p className="text-slate-800 text-base md:text-md leading-relaxed font-medium">
+                                            <p className="text-slate-800 text-base text-justify md:text-md leading-relaxed font-medium">
                                                 {activeExp.description}
                                             </p>
                                         )}

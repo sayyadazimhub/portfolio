@@ -127,7 +127,7 @@ const Experience = () => {
                                                 <button
                                                     onClick={() => setActiveIndex(idx)}
                                                     className={`w-4 h-4 md:w-5 md:h-5 rounded-full border-[3px] md:border-[4px] transition-all duration-300 cursor-pointer ${isActive ? 'bg-white border-indigo-600 ring-2 md:ring-4 ring-indigo-100 scale-125' :
-                                                            isPast ? 'bg-indigo-600 border-indigo-600 hover:scale-110' : 'bg-white border-slate-200 hover:border-slate-300 hover:scale-110'
+                                                        isPast ? 'bg-indigo-600 border-indigo-600 hover:scale-110' : 'bg-white border-slate-200 hover:border-slate-300 hover:scale-110'
                                                         }`}
                                                 />
                                                 <span className={`absolute top-6 md:top-8 left-1/2 -translate-x-1/2 whitespace-nowrap text-[10px] sm:text-[11px] md:text-xs font-bold uppercase tracking-wider md:tracking-widest transition-colors duration-300 ${isActive ? 'text-indigo-600' : 'text-slate-600'}`}>
@@ -167,55 +167,55 @@ const Experience = () => {
                                     </button>
                                 )}
 
-                                    <div
-                                        key={activeIndex}
-                                        className="flex flex-col h-full"
-                                    >
-                                        <div className="flex justify-between items-start mb-4">
-                                            {activeExp.employmentType && (
-                                                <div className="flex flex-wrap items-center gap-2">
-                                                    <span className="text-[10px] md:text-xs font-mono font-bold px-2.5 py-1 bg-slate-100 text-slate-800 uppercase rounded-md tracking-wider">
-                                                        {activeExp.employmentType}
-                                                    </span>
-                                                </div>
-                                            )}
-                                            <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-50 border border-slate-200 shadow-sm text-slate-800 w-fit transition-colors hover:border-slate-300">
-                                                {activeExp.currentlyWorking || !activeExp.endDate ? (
-                                                    <span className="relative flex h-2 w-2">
-                                                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
-                                                        <span className="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
-                                                    </span>
-                                                ) : (
-                                                    <FaCalendarAlt className="text-slate-600 text-[10px] sm:text-[11px]" />
-                                                )}
-                                                <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest">
-                                                    {formatPeriod(activeExp.startDate, activeExp.endDate, activeExp.currentlyWorking)}
+                                <div
+                                    key={activeIndex}
+                                    className="flex flex-col h-full"
+                                >
+                                    <div className="flex justify-between items-start mb-4">
+                                        {activeExp.employmentType && (
+                                            <div className="flex flex-wrap items-center gap-2">
+                                                <span className="text-[10px] md:text-xs font-mono font-bold px-2.5 py-1 bg-slate-100 text-slate-800 uppercase rounded-md tracking-wider">
+                                                    {activeExp.employmentType}
                                                 </span>
                                             </div>
-                                        </div>
-
-                                        <h3 className="text-2xl md:text-3xl font-serif font-bold text-black mb-2 leading-tight">
-                                            {activeExp.jobTitle}
-                                        </h3>
-
-                                        <div className="flex flex-col sm:flex-row sm:items-center gap-3 md:gap-4 mb-1">
-                                            <div className="text-lg md:text-xl text-black italic font-serif">
-                                                {activeExp.company}
-                                            </div>
-                                        </div>
-
-                                        {activeExp.location && (
-                                            <div className="text-sm font-serif font-semibold text-slate-600 flex items-center gap-1.5 mt-1 mb-6">
-                                                <FaMapMarkerAlt className="text-indigo-500" /> {activeExp.location}
-                                            </div>
                                         )}
-
-                                        {activeExp.description && (
-                                            <p className="text-slate-800 text-base text-justify md:text-md leading-relaxed font-medium">
-                                                {activeExp.description}
-                                            </p>
-                                        )}
+                                        <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-50 border border-slate-200 shadow-sm text-slate-800 w-fit transition-colors hover:border-slate-300">
+                                            {activeExp.currentlyWorking || !activeExp.endDate ? (
+                                                <span className="relative flex h-2 w-2">
+                                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+                                                    <span className="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
+                                                </span>
+                                            ) : (
+                                                <FaCalendarAlt className="text-slate-600 text-[10px] sm:text-[11px]" />
+                                            )}
+                                            <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest">
+                                                {formatPeriod(activeExp.startDate, activeExp.endDate, activeExp.currentlyWorking)}
+                                            </span>
+                                        </div>
                                     </div>
+
+                                    <h3 className="text-2xl md:text-3xl font-serif font-bold text-black mb-2 leading-tight">
+                                        {activeExp.jobTitle}
+                                    </h3>
+
+                                    <div className="flex flex-col sm:flex-row sm:items-center gap-3 md:gap-4 mb-1">
+                                        <div className="text-lg md:text-xl text-black italic font-serif">
+                                            {activeExp.company}
+                                        </div>
+                                    </div>
+
+                                    {activeExp.location && (
+                                        <div className="text-sm font-serif font-semibold text-slate-600 flex items-center gap-1.5 mt-1 mb-6">
+                                            <FaMapMarkerAlt className="text-indigo-500" /> {activeExp.location}
+                                        </div>
+                                    )}
+
+                                    {activeExp.description && (
+                                        <p className="text-slate-800 text-base text-justify md:text-md leading-relaxed font-medium">
+                                            {activeExp.description}
+                                        </p>
+                                    )}
+                                </div>
                             </div>
 
                             {/* Next Experience Preview (Span 1) */}

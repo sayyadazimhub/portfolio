@@ -147,9 +147,9 @@ const Projects = () => {
             </div>
 
             <h1
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-black tracking-tight font-serif mb-3 lg:mb-6 leading-[1.15] sm:leading-[1.1]"
+              className="text-4xl sm:text-5xl md:text-6xl font-black text-black tracking-tight font-serif mb-3 lg:mb-6 leading-[1.15] sm:leading-[1.1]"
             >
-              Explore My{" "}
+              Explore My{" "} <br />
               <span className="inline mt-1 sm:mt-0 text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-cyan-500">
                 Archive
               </span>

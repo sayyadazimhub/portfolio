@@ -235,18 +235,18 @@ const ProjectDetail = () => {
                                                 </p>
                                             </div>
                                         )}
-                                        {project.projectCategory && (
+                                        {/* {project.projectCategory && (
                                             <div>
                                                 <p className="text-[9px] font-black text-slate-400 uppercase tracking-widest mb-1 font-mono">Category</p>
                                                 <p className="text-sm font-bold text-slate-800">{project.projectCategory}</p>
                                             </div>
-                                        )}
-                                        {project.projectType && (
+                                        )} */}
+                                        {/* {project.projectType && (
                                             <div>
                                                 <p className="text-[9px] font-black text-slate-400 uppercase tracking-widest mb-1 font-mono">Type</p>
                                                 <p className="text-sm font-bold text-slate-800">{project.projectType}</p>
                                             </div>
-                                        )}
+                                        )} */}
                                     </div>
                                 )}
                             </div>

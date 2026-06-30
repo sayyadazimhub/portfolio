@@ -35,6 +35,7 @@ const projectSchema = new mongoose.Schema(
                 "Backend",
                 "ERP",
                 "CRM",
+                "LMS",
                 "E-Commerce",
                 "Dashboard",
                 "Portfolio",

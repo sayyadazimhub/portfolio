@@ -408,7 +408,14 @@ export default function Projects() {
               <option value="Frontend">Frontend</option>
               <option value="Backend">Backend</option>
               <option value="ERP">ERP</option>
+              <option value="CRM">CRM</option>
+              <option value="LMS">LMS</option>
+              <option value="E-Commerce">E-Commerce</option>
+              <option value="Dashboard">Dashboard</option>
+              <option value="Portfolio">Portfolio</option>
+              <option value="Landing Page">Landing Page</option>
               <option value="Mobile App">Mobile App</option>
+              <option value="Other">Other</option>
             </select>
 
             <select
@@ -716,6 +723,7 @@ export default function Projects() {
                     <option value="Backend">Backend</option>
                     <option value="ERP">ERP</option>
                     <option value="CRM">CRM</option>
+                    <option value="LMS">LMS</option>
                     <option value="E-Commerce">E-Commerce</option>
                     <option value="Dashboard">Dashboard</option>
                     <option value="Portfolio">Portfolio</option>

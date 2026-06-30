@@ -1,39 +1,37 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { FaArrowRight, FaReact, FaNodeJs, FaDatabase, FaAws, FaGithub, FaLinkedin, FaLinkedinIn, FaTwitter } from 'react-icons/fa';
+import { FaArrowRight, FaGithub, FaLinkedin } from 'react-icons/fa';
 import { apiService } from '../../utils/api';
-import logo from '../../assets/logo.png';
 
 const Hero = () => {
-    const [aboutData, setAboutData] = useState(null);
-    const [yearsExperience, setYearsExperience] = useState(1);
+    const [yearsExperience, setYearsExperience] = useState(0);
 
     useEffect(() => {
         const fetchHeroData = async () => {
             try {
-                const [aboutRes, expRes] = await Promise.all([
-                    apiService.getAbout(),
-                    apiService.getExperience()
-                ]);
-                // Check if data is array or object and get the first item if array
-                const data = Array.isArray(aboutRes.data) ? aboutRes.data[0] : (aboutRes.data?.data?.[0] || aboutRes.data?.data || aboutRes.data);
-                setAboutData(data);
+                const expRes = await apiService.getExperience();
                 
-                const experiences = Array.isArray(expRes.data) ? expRes.data : (expRes.data?.data || []);
-                let expYears = 0;
+                const allExperiences = Array.isArray(expRes.data) ? expRes.data : (expRes.data?.data || []);
+                const experiences = allExperiences.filter(exp => exp.status === true);
                 if (experiences && experiences.length > 0) {
-                    let totalTime = 0;
+                    let totalMonths = 0;
+                    
                     experiences.forEach(exp => {
                         const start = new Date(exp.startDate);
                         const end = exp.endDate ? new Date(exp.endDate) : new Date();
+                        
                         if (!isNaN(start.getTime()) && !isNaN(end.getTime())) {
-                            totalTime += Math.max(0, end - start);
+                            let months = (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth());
+                            if (end.getDate() < start.getDate()) {
+                                months--;
+                            }
+                            totalMonths += Math.max(0, months);
                         }
                     });
-                    expYears = Math.ceil(totalTime / (1000 * 60 * 60 * 24 * 365.25));
+
+                    setYearsExperience(parseFloat((totalMonths / 12).toFixed(1)));
                 }
-                setYearsExperience(expYears > 0 ? expYears : 1);
             } catch (err) {
                 console.error("Failed to load hero data", err);
             }
@@ -235,8 +233,10 @@ const Hero = () => {
                                 className="absolute top-[2%] left-[20%] z-10 w-24 h-24 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-full shadow-lg shadow-indigo-600/30 flex items-center justify-center border-4 border-white cursor-default hover:scale-105 transition-transform duration-300"
                             >
                                 <div className="text-center text-white">
-                                    <div className="font-black text-2xl leading-none">{yearsExperience}+</div>
-                                    <div className="font-mono text-[8px] uppercase tracking-widest mt-1 opacity-80">Years<br />Exp</div>
+                                    <div className="font-black text-2xl leading-none whitespace-nowrap">
+                                        {yearsExperience > 0 ? yearsExperience : 0}<span className="text-white">+</span>
+                                    </div>
+                                    <div className="font-mono text-[8px] uppercase tracking-widest mt-1 opacity-80">Years of Experience</div>
                                 </div>
                             </motion.div>
 

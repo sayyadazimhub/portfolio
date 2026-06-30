@@ -33,7 +33,8 @@ const About = () => {
                 const projects = Array.isArray(projectsRes.data) ? projectsRes.data : (projectsRes.data?.data || []);
                 const completedProjects = projects.filter(project => project.status === 'Completed');
                 const certificates = Array.isArray(certificatesRes.data) ? certificatesRes.data : (certificatesRes.data?.data || []);
-                const experiences = Array.isArray(experienceRes.data) ? experienceRes.data : (experienceRes.data?.data || []);
+                const allExperiences = Array.isArray(experienceRes.data) ? experienceRes.data : (experienceRes.data?.data || []);
+                const experiences = allExperiences.filter(exp => exp.status === true);
                 
                 const resumeData = Array.isArray(resumeRes.data) ? resumeRes.data[0] : (resumeRes.data?.data?.[0] || resumeRes.data);
                 if (resumeData && resumeData.resumeUrl) {
@@ -42,17 +43,21 @@ const About = () => {
                 
                 // Calculate total years of experience by summing durations of all roles
                 let yearsExperience = 0;
+                let monthsExperience = 0;
                 if (experiences && experiences.length > 0) {
-                    let totalTime = 0;
+                    let totalMonths = 0;
                     experiences.forEach(exp => {
                         const start = new Date(exp.startDate);
                         const end = exp.endDate ? new Date(exp.endDate) : new Date();
                         if (!isNaN(start.getTime()) && !isNaN(end.getTime())) {
-                            totalTime += Math.max(0, end - start);
+                            let months = (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth());
+                            if (end.getDate() < start.getDate()) {
+                                months--;
+                            }
+                            totalMonths += Math.max(0, months);
                         }
                     });
-                    const diffYears = totalTime / (1000 * 60 * 60 * 24 * 365.25);
-                    yearsExperience = Math.ceil(diffYears);
+                    yearsExperience = parseFloat((totalMonths / 12).toFixed(1));
                 }
                 
                 setStats({
@@ -213,8 +218,10 @@ const About = () => {
                                         <FaGraduationCap className="text-base sm:text-lg" />
                                     </div>
                                     <div className="flex flex-col justify-center">
-                                        <h4 className="text-xl sm:text-2xl font-black text-slate-900 leading-none mb-1">{stats.yearsExperience > 0 ? stats.yearsExperience : 0}<span className="text-rose-500">+</span></h4>
-                                        <p className="text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-slate-600 leading-none">Yrs Exp</p>
+                                        <h4 className="text-xl sm:text-2xl font-black text-slate-900 leading-none mb-1 whitespace-nowrap">
+                                            {stats.yearsExperience > 0 ? stats.yearsExperience : 0}<span className="text-rose-500">+</span>
+                                        </h4>
+                                        <p className="text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-slate-600 leading-none">Years of Experience</p>
                                     </div>
                                 </div>
                             </div>

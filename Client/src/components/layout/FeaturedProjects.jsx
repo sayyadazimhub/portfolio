@@ -161,7 +161,7 @@ const FeaturedProjects = () => {
                                             </div>
 
                                             {/* Content Section - Optimized without blur */}
-                                            <div className="absolute bottom-0 left-0 right-0 flex flex-col p-4 sm:p-5 bg-slate-900/80 border-t border-white/20 z-20 transition-colors duration-500">
+                                            <div className="absolute bottom-0 left-0 right-0 flex flex-col p-4 sm:p-5 bg-slate-900/20 border-t border-white/20 z-20 transition-colors duration-500">
                                                 <div className="flex items-center justify-between gap-4">
                                                     <div className="flex flex-col flex-1 min-w-0">
                                                         {/* Type Badge */}

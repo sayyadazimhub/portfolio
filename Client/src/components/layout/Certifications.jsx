@@ -130,6 +130,7 @@ const Certifications = () => {
                                                     <img
                                                         src={cert.certificateImage}
                                                         alt={cert.title}
+                                                        loading="lazy"
                                                         className="w-full h-full object-contain group-hover:scale-[1.03] transition-transform duration-300 ease-[cubic-bezier(0.23,1,0.32,1)]"
                                                     />
                                                 ) : (
@@ -140,7 +141,7 @@ const Certifications = () => {
                                             {/* Bottom Action Bar (Slides up on hover) */}
                                             <div className="absolute bottom-0 left-0 right-0 bg-white p-4 border-t border-slate-100 transform translate-y-0 md:translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] z-20 flex justify-between items-center shadow-[0_-4px_20px_rgba(0,0,0,0.04)] will-change-transform">
                                                 <div className="flex flex-col pr-3 min-w-0">
-                                                    <h3 className="text-sm font-bold font-serif text-slate-800 truncate mb-1">{cert.title}</h3>
+                                                    <h4 className="text-sm font-bold font-serif text-slate-800 truncate mb-1">{cert.title}</h4>
                                                     <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
                                                         <span className="text-[10px] font-mono font-bold text-indigo-600 uppercase tracking-wider"><span className="text-slate-500 pr-2">Issuer:</span>{cert.issuer}</span>
                                                         {/* {cert.credentialId && (
@@ -265,6 +266,7 @@ const Certifications = () => {
                             <img
                                 src={selectedImage}
                                 alt="Achievement Full Size"
+                                loading="lazy"
                                 className="w-full h-auto max-h-[80vh] object-contain"
                             />
                         </div>

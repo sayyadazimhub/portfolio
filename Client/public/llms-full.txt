@@ -1,0 +1,17 @@
+# Sayyad Azim - Full-Stack Developer
+
+Sayyad Azim is a Full-Stack MERN Developer based in Hyderabad, India. He specializes in creating scalable web applications with React, Node.js, Express.js, and MongoDB.
+
+## Professional Summary
+Azim is a skilled software developer with expertise in both front-end and back-end development. He holds a B.Tech in Computer Science and Engineering (July 2025) from Gramin Technical and Management Campus, Nanded (affiliated with Dr. Babasaheb Ambedkar Technological University), and has completed numerous certifications in modern web development technologies.
+
+## Tech Stack
+- Frontend: React, Next.js, JavaScript, TypeScript, HTML, CSS, Tailwind CSS, Bootstrap, MUI
+- Backend: Node.js, Express.js, MongoDB, Mongoose, MySQL, SQL, NoSQL, JWT, REST APIs
+- Tools: Git, GitHub, Redux, Redux Toolkit, Figma, Vercel, ChatGPT, Gemini, Visual Studio Code
+
+## Featured Projects
+Azim's portfolio features a variety of full-stack projects, demonstrating his ability to handle authentication, database design, RESTful APIs, and responsive UI design.
+
+## Contact
+Email and direct contact forms are available on the main portfolio site at https://azim-sayyad-portfolio.vercel.app/contact.

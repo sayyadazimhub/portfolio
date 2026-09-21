@@ -1,8 +1,13 @@
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 const NotFound = () => {
     return (
         <div className="min-h-screen flex items-center justify-center bg-primary px-4">
+            <Helmet>
+                <title>404 - Page Not Found | Sayyad Azim</title>
+                <meta name="robots" content="noindex, nofollow" />
+            </Helmet>
             <div className="text-center">
                 <h1 className="text-9xl font-bold text-accent mb-4">404</h1>
                 <h2 className="text-3xl font-semibold text-white mb-6">Page Not Found</h2>

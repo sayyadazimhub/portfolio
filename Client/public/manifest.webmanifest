@@ -1,0 +1,21 @@
+{
+  "name": "Sayyad Azim - Full-Stack Developer",
+  "short_name": "Sayyad Azim",
+  "description": "Sayyad Azim is a Full-Stack MERN Developer based in Hyderabad, specializing in building scalable web applications.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#4f46e5",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

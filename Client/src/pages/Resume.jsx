@@ -7,6 +7,8 @@ import 'react-pdf/dist/Page/TextLayer.css';
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
 
+import { Helmet } from 'react-helmet-async';
+
 const Resume = () => {
     const [resume, setResume] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -82,6 +84,11 @@ const Resume = () => {
 
     return (
         <div className="w-full bg-slate-50 pt-10 pb-10 relative overflow-hidden">
+            <Helmet>
+                <title>Resume & CV | Sayyad Azim</title>
+                <meta name="description" content="View and download the professional resume of Sayyad Azim, Full-Stack Developer." />
+                <link rel="canonical" href="https://azim-sayyad-portfolio.vercel.app/resume" />
+            </Helmet>
             {/* Soft background glow */}
             <div className="absolute top-0 inset-x-0 h-[500px] bg-gradient-to-b from-indigo-50/50 to-transparent pointer-events-none"></div>
 

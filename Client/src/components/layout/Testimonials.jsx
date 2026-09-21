@@ -144,17 +144,17 @@ const Testimonials = () => {
                     {/* Left Text Column */}
                     <div className="flex flex-col items-start gap-6 md:gap-8">
                         <div className="flex flex-col items-start">
-                            <h2 
+                            <div 
                                 className="font-mono text-[10px] sm:text-xs uppercase tracking-[0.2em] mb-2 sm:mb-3 text-indigo-600 font-bold flex items-center gap-2"
                             >
                                 {/* <span className="w-6 h-0.5 bg-indigo-600 shrink-0"></span> */}
                                 <span className="truncate">Client Feedback</span>
-                            </h2>
-                            <h3 
+                            </div>
+                            <h2 
                                 className="text-3xl sm:text-4xl lg:text-5xl font-black text-black font-serif leading-[1.1] tracking-tight mb-4"
                             >
                                 What People <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-cyan-500">Say.</span>
-                            </h3>
+                            </h2>
                             <p 
                                 className="text-slate-800 font-medium max-w-xl text-sm sm:text-base leading-relaxed text-justify md:text-left"
                             >
@@ -185,7 +185,7 @@ const Testimonials = () => {
                                 <div className="h-20 w-20 bg-indigo-50 rounded-full flex items-center justify-center mb-6">
                                     <FaQuoteRight className="h-8 w-8 text-indigo-300" />
                                 </div>
-                                <h4 className="text-xl md:text-2xl font-bold text-black mb-3 font-serif">Be the first to share your experience</h4>
+                                <h3 className="text-xl md:text-2xl font-bold text-black mb-3 font-serif">Be the first to share your experience</h3>
                                 <p className="text-slate-600 mb-8 max-w-md">Your feedback means a lot! Click below to share your thoughts about our collaboration.</p>
                                 <button
                                     type="button"
@@ -230,6 +230,7 @@ const Testimonials = () => {
                                                     <img
                                                         src={selectedTestimonial.image}
                                                         alt={selectedTestimonial.name}
+                                                        loading="lazy"
                                                         className="h-full w-full object-cover"
                                                     />
                                                 ) : (
@@ -300,7 +301,7 @@ const Testimonials = () => {
                         >
                             <div className="flex flex-row items-start justify-between gap-4 mb-6 shrink-0">
                                 <div>
-                                    <h3 className="text-3xl font-black text-black font-serif tracking-tight">Share your <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-cyan-500">experience.</span></h3>
+                                    <h2 className="text-3xl font-black text-black font-serif tracking-tight">Share your <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-cyan-500">experience.</span></h2>
                                     <p className="mt-1 text-sm font-medium text-slate-800">Submit a testimonial to show what it was like working together.</p>
                                 </div>
                                 <button
@@ -389,6 +390,7 @@ const Testimonials = () => {
                                                     <img
                                                         src={URL.createObjectURL(formData.image)}
                                                         alt="Preview"
+                                                        loading="lazy"
                                                         className="h-full w-full object-cover"
                                                     />
                                                     <div className="absolute inset-0 bg-slate-900/60 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center cursor-pointer" onClick={() => setFormData(prev => ({ ...prev, image: null }))}>

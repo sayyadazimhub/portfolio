@@ -79,7 +79,7 @@ const About = () => {
     const profileImage = aboutData?.profileImage || imageFallback;
     const fullName = aboutData?.fullName || 'Sayyad Azim';
     const title = aboutData?.title || 'Full-Stack Developer';
-    const bioText = aboutData?.bio || "I am a passionate Full-Stack Developer with a strong foundation in the MERN stack and a keen interest in Cloud Computing and Data Visualization.\nMy journey in tech has been driven by a curiosity to understand how things work and a desire to build solutions that make a difference.";
+    const bioText = aboutData?.bio || "I am Sayyad Azim, a Full-Stack MERN Developer based in Hyderabad, India. I specialize in React, Node.js, Express, and MongoDB.\nI am a passionate developer with a strong foundation in the MERN stack and a keen interest in Cloud Computing and Data Visualization. My journey in tech has been driven by a curiosity to understand how things work and a desire to build solutions that make a difference.";
 
     return (
         <section id="about" className="pt-10 pb-12 md:pt-14 md:pb-14 bg-white relative overflow-hidden">
@@ -141,6 +141,7 @@ const About = () => {
                                     <img
                                         src={profileImage}
                                         alt={fullName}
+                                        loading="lazy"
                                         className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-1000 ease-out"
                                     />
                                     {/* Hover Details overlay */}
@@ -162,12 +163,12 @@ const About = () => {
                         <div
                             className="w-full lg:w-8/12 flex flex-col justify-center"
                         >
-                            <h2 className="font-mono text-[10px] sm:text-xs uppercase tracking-[0.2em] mb-2 sm:mb-3 text-indigo-600 font-bold flex items-center gap-2">
+                            <div className="font-mono text-[10px] sm:text-xs uppercase tracking-[0.2em] mb-2 sm:mb-3 text-indigo-600 font-bold flex items-center gap-2">
                                 Discover More
-                            </h2>
-                            <h3 className="text-3xl sm:text-4xl lg:text-5xl font-black text-black mb-5 font-serif leading-[1.1] tracking-tight">
+                            </div>
+                            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-black mb-5 font-serif leading-[1.1] tracking-tight">
                                 Crafting digital experiences with <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-cyan-500">precision.</span>
-                            </h3>
+                            </h2>
 
                             <div className="text-slate-600 leading-relaxed space-y-3 text-sm sm:text-base text-justify mb-8">
                                 {bioText.split('\n').map((paragraph, index) => (

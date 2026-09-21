@@ -98,16 +98,16 @@ const Hero = () => {
                         </div>
 
                         {/* Subtitle */}
-                        <h2
+                        <div
                             className="font-mono text-xs sm:text-sm uppercase tracking-[0.2em] mb-4 text-indigo-600 font-bold flex items-center gap-3"
                         >
                             <span className="hidden lg:block w-8 h-0.5 bg-indigo-600"></span>
                             Hello, I'm
-                        </h2>
+                        </div>
 
                         {/* Main Heading */}
                         <h1
-                            className="font-serif text-5xl sm:text-7xl lg:text-[5.5rem] font-black mb-6 leading-[1.05] tracking-tight text-black"
+                            className="font-serif text-5xl sm:text-7xl lg:text-[5.5rem] font-black mb-2 leading-[1.05] tracking-tight text-black"
                         >
                             Sayyad <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-cyan-500 relative inline-block">
                                 Azim
@@ -117,10 +117,11 @@ const Hero = () => {
                                 </svg>
                             </span>
                         </h1>
+                        <h2 className="sr-only">MERN Stack Full-Stack Developer in Hyderabad</h2>
 
                         {/* Skill/Role Banner */}
                         <div
-                            className="flex flex-wrap items-center justify-center lg:justify-start gap-3 mb-8 font-mono text-[10px] sm:text-xs uppercase tracking-[0.15em] text-slate-800 font-bold"
+                            className="flex flex-wrap items-center justify-center lg:justify-start gap-3 mt-3 mb-8 font-mono text-[10px] sm:text-xs uppercase tracking-[0.15em] text-slate-800 font-bold"
                         >
                             <span className="bg-slate-100 px-3 py-1 rounded-md">Full-Stack Developer</span>
                             {/* <span className="text-indigo-400 font-black">+</span>
@@ -133,7 +134,7 @@ const Hero = () => {
                         <p
                             className="text-slate-800 font-medium max-w-xl mb-10 text-base sm:text-lg leading-relaxed"
                         >
-                            I engineer robust, highly scalable digital solutions focusing on modern architectures, cloud infrastructure, and seamless user experiences. Let's build something extraordinary.
+                            I am Sayyad Azim, a Full-Stack MERN Developer based in Hyderabad, India. I specialize in building scalable web applications with React, Node.js, Express, and MongoDB. I engineer robust digital solutions focusing on modern architectures and seamless user experiences. Let's build something extraordinary.
                         </p>
 
                         {/* CTA Buttons & Social Links */}

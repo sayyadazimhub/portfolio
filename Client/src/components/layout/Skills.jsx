@@ -65,17 +65,17 @@ const Skills = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="flex flex-col md:flex-row md:items-end justify-between gap-2 mb-12">
                     <div className="flex-1">
-                        <h2 
+                        <div 
                             className="font-mono text-[10px] sm:text-xs uppercase tracking-[0.2em] mb-2 sm:mb-3 text-indigo-600 font-bold flex items-center gap-2"
                         >
                             {/* <span className="w-6 h-0.5 bg-indigo-600"></span> */}
                             My Expertise
-                        </h2>
-                        <h3 
+                        </div>
+                        <h2 
                             className="text-3xl sm:text-4xl lg:text-5xl font-black text-black font-serif leading-[1.1] tracking-tight"
                         >
                             Technical <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-cyan-500">Arsenal.</span>
-                        </h3>
+                        </h2>
                     </div>
                     <p 
                         className="text-slate-800 max-w-md text-sm sm:text-base leading-relaxed text-justify md:text-left"
@@ -130,7 +130,7 @@ const Skills = () => {
                                                     <div className="flex items-center gap-3">
                                                         <div className={`p-2 sm:p-2.5 rounded-lg border ${colorClass} transition-colors duration-300 group-hover:scale-110 flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 shrink-0 overflow-hidden`}>
                                                             {isImageUrl ? (
-                                                                <img src={skill.icon} alt={skill.name} className="w-full h-full object-contain" />
+                                                                <img src={skill.icon} alt={skill.name} loading="lazy" className="w-full h-full object-contain" />
                                                             ) : (
                                                                 <SkillIcon className="text-lg sm:text-xl" />
                                                             )}

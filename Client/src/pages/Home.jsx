@@ -3,17 +3,25 @@ import FeaturedProjects from '../components/layout/FeaturedProjects';
 import Testimonials from '../components/layout/Testimonials';
 import FooterCTA from '../components/layout/FooterCTA';
 import Skills from '../components/layout/Skills';
+import FAQSection from '../components/layout/FAQSection';
+import { Helmet } from 'react-helmet-async';
 // import GithubSection from '../components/layout/GithubSection';
 
 const Home = () => {
     return (
         <div>
+            <Helmet>
+                <title>Full-Stack MERN Developer in Hyderabad | Sayyad Azim</title>
+                <meta name="description" content="Portfolio of Sayyad Azim, a Full-Stack MERN Developer based in Hyderabad specializing in React, Node.js, and MongoDB." />
+                <link rel="canonical" href="https://azim-sayyad-portfolio.vercel.app/" />
+            </Helmet>
             <Hero />
             <Skills />
             {/* <GithubSection /> */}
             <FeaturedProjects />
             <FooterCTA />
             <Testimonials />
+            <FAQSection />
         </div>
     );
 };

@@ -1,0 +1,13 @@
+/* TEAM */
+Name: Sayyad Azim
+Role: Full-Stack MERN Developer
+Location: Hyderabad, India
+Contact: https://azim-sayyad-portfolio.vercel.app/contact
+GitHub: https://github.com/sayyadazimhub
+LinkedIn: https://www.linkedin.com/in/sayyadazimmern/
+
+/* SITE */
+Last update: 2026/09
+Language: English
+Tech Stack: React, Next.js, Node.js, Express.js, SQL, MySQL, MongoDB, Mongoose, NoSQL, Tailwind CSS, Vite, Vercel
+, Git, GitHub, Redux, Redux Toolkit, Figma, Bootstrap

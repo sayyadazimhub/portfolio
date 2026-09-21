@@ -1,0 +1,10 @@
+# Sayyad Azim
+
+> Sayyad Azim is a Full-Stack MERN Developer based in Hyderabad, India, specializing in building scalable web applications with React, Node.js, and MongoDB.
+
+## Key Links
+- [About Sayyad Azim](https://azim-sayyad-portfolio.vercel.app/about): Learn more about his background, education at Gramin Technical and Management Campus, Nanded (DBATU), and technical expertise.
+- [Projects Portfolio](https://azim-sayyad-portfolio.vercel.app/projects): Explore comprehensive case studies of web applications developed using the MERN stack and modern front-end frameworks.
+- [Contact Info](https://azim-sayyad-portfolio.vercel.app/contact): Get in touch for freelance opportunities, collaborations, or inquiries.
+- [GitHub Profile](https://github.com/sayyadazimhub): View source code, open-source contributions, and technical implementations.
+- [LinkedIn Profile](https://www.linkedin.com/in/sayyad-azim-a3b069223/): Connect professionally and view work experience and endorsements.

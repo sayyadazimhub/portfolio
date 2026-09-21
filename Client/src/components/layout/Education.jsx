@@ -120,7 +120,7 @@ const Education = () => {
                                 <div className="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600">
                                     <FaAward size={20} />
                                 </div>
-                                <h3 className="text-2xl font-bold text-black font-serif">Highest Qualification</h3>
+                                <div className="text-2xl font-bold text-black font-serif">Highest Qualification</div>
                             </div>
 
                             <div>
@@ -139,9 +139,9 @@ const Education = () => {
                                                     </div>
                                                 </div>
                                                 <div className="min-w-0">
-                                                    <h4 className="text-2xl md:text-3xl font-serif font-black text-black leading-snug sm:whitespace-normal mb-1.5">
+                                                    <h3 className="text-2xl md:text-3xl font-serif font-black text-black leading-snug sm:whitespace-normal mb-1.5">
                                                         {educationList[0].degree}
-                                                    </h4>
+                                                    </h3>
                                                     <div className="flex flex-wrap items-center gap-x-3 gap-y-2 mt-1 text-sm sm:text-base font-medium text-slate-600">
                                                         <div className="flex items-center gap-1.5 text-indigo-600 text-base font-bold sm:text-lg tracking-wider">
                                                             <span className="font-serif">{educationList[0].institution}</span>
@@ -208,7 +208,7 @@ const Education = () => {
                                     <div className="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center text-slate-600">
                                         <FaGraduationCap size={18} />
                                     </div>
-                                    <h3 className="text-xl font-bold text-black font-serif">Previous Education</h3>
+                                    <div className="text-xl font-bold text-black font-serif">Previous Education</div>
                                 </div>
 
                                 <div className="space-y-5">
@@ -220,9 +220,9 @@ const Education = () => {
                                                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
 
                                                     <div className="flex-grow">
-                                                        <h4 className="text-lg md:text-xl flex items-center gap-2 font-bold font-serif text-black mb-1 transition-colors">
+                                                        <h3 className="text-lg md:text-xl flex items-center gap-2 font-bold font-serif text-black mb-1 transition-colors">
                                                             {edu.degree}
-                                                        </h4>
+                                                        </h3>
                                                         <div className="text-sm sm:text-base font-medium text-slate-800">
                                                             {edu.institution}
                                                         </div>

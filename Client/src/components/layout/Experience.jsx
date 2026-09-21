@@ -238,9 +238,9 @@ const Experience = () => {
                                             <span className="text-[10px] md:text-xs font-bold text-indigo-600 uppercase tracking-widest mb-1 md:mb-6 flex items-center gap-2">
                                                 Previous Experience <FaChevronRight className="hidden md:inline group-hover:translate-x-1 transition-transform" />
                                             </span>
-                                            <h3 className="text-lg md:text-2xl font-serif font-bold text-black mb-0 md:mb-2 leading-snug">
+                                            <h4 className="text-lg md:text-2xl font-serif font-bold text-black mb-0 md:mb-2 leading-snug">
                                                 {nextExp.jobTitle}
-                                            </h3>
+                                            </h4>
                                             <p className="hidden md:block text-slate-600 italic font-serif mb-6 md:mb-8 text-base md:text-lg">
                                                 {nextExp.company}
                                             </p>
@@ -264,9 +264,9 @@ const Experience = () => {
                                         <span className="text-[10px] md:text-xs font-bold text-slate-500 uppercase tracking-widest mb-2 md:mb-6 flex items-center gap-2">
                                             End of Timeline
                                         </span>
-                                        <h3 className="text-lg md:text-xl font-serif font-bold text-black/95 mb-0 md:mb-2 leading-snug">
+                                        <h4 className="text-lg md:text-xl font-serif font-bold text-black/95 mb-0 md:mb-2 leading-snug">
                                             You've reached the start.
-                                        </h3>
+                                        </h4>
                                         <p className="hidden md:block text-slate-500 font-medium mt-4 text-sm md:text-base">
                                             These are all my documented professional experiences so far.
                                         </p>

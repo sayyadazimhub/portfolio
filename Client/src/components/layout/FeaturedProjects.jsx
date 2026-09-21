@@ -41,17 +41,17 @@ const FeaturedProjects = () => {
                 {/* Header Section */}
                 <div className="flex flex-row items-end justify-between gap-4">
                     <div className="flex-1 min-w-0">
-                        <h2
+                        <div
                             className="font-mono text-[10px] sm:text-xs uppercase tracking-[0.2em] mb-2 sm:mb-3 text-indigo-600 font-bold flex items-center gap-2"
                         >
                             {/* <span className="w-6 h-0.5 bg-indigo-600 shrink-0"></span> */}
                             <span className="truncate">Featured Work</span>
-                        </h2>
-                        <h3
+                        </div>
+                        <h2
                             className="text-2xl sm:text-4xl lg:text-5xl font-black text-black font-serif leading-[1.1] tracking-tight truncate"
                         >
                             Curated <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-cyan-500">Archive.</span>
-                        </h3>
+                        </h2>
                     </div>
                     <div
                         className="flex shrink-0 mb-1 sm:mb-0"

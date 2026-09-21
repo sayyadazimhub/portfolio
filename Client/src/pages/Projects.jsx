@@ -12,6 +12,8 @@ import {
   FaChevronDown,
 } from "react-icons/fa";
 
+import { Helmet } from 'react-helmet-async';
+
 const Projects = () => {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -129,6 +131,11 @@ const Projects = () => {
 
   return (
     <section className="bg-slate-50 pt-12 sm:pb-16 pb-12 relative overflow-hidden">
+      <Helmet>
+        <title>Portfolio Projects | Sayyad Azim</title>
+        <meta name="description" content="Explore my archive of web development projects, showcasing scalable architectures and intuitive interfaces." />
+        <link rel="canonical" href="https://azim-sayyad-portfolio.vercel.app/projects" />
+      </Helmet>
       {/* Dynamic Background */}
       <div className="absolute top-0 inset-x-0 h-96 bg-gradient-to-b from-indigo-50/50 via-slate-50/30 to-transparent pointer-events-none"></div>
 

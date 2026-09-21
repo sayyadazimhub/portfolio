@@ -64,7 +64,7 @@ const Navbar = () => {
                         <div className="relative w-12 h-12 flex items-center justify-center rounded-xl bg-slate-50 border border-slate-200 group-hover:border-indigo-300 group-hover:bg-indigo-50 transition-all duration-300">
                             <img
                                 src={logo}
-                                alt="Sayyad Portfolio"
+                                alt="Sayyad Azim Full-Stack Developer Logo"
                                 className="h-8 w-8 object-contain transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-110"
                             />
                         </div>

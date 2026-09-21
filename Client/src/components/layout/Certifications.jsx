@@ -265,7 +265,7 @@ const Certifications = () => {
                             </button>
                             <img
                                 src={selectedImage}
-                                alt="Achievement Full Size"
+                                alt="Sayyad Azim Professional Certification"
                                 loading="lazy"
                                 className="w-full h-auto max-h-[80vh] object-contain"
                             />

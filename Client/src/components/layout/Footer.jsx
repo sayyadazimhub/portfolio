@@ -27,7 +27,7 @@ export default function Footer() {
               <div className="relative w-16 h-16 flex items-center justify-center rounded-2xl bg-slate-50 border border-slate-200 group-hover:border-indigo-300 group-hover:bg-indigo-50 transition-all duration-300">
                 <img
                   src={logo}
-                  alt="Sayyad Portfolio"
+                  alt="Sayyad Azim Full-Stack Developer Logo"
                   className="h-10 w-10 object-contain transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-110"
                 />
               </div>

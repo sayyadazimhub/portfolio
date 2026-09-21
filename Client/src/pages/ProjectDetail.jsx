@@ -212,7 +212,7 @@ const ProjectDetail = () => {
                                                     <div className="absolute inset-0 bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden flex items-center justify-center p-2">
                                                         <img
                                                             src={project.clientLogo.url}
-                                                            alt="Client brand"
+                                                            alt={`${project.clientName} brand logo`}
                                                             loading="lazy"
                                                             className="h-full w-full object-contain"
                                                         />
@@ -259,7 +259,7 @@ const ProjectDetail = () => {
                                         <div className="absolute inset-0 bg-white rounded-3xl border border-slate-100 shadow-xl overflow-hidden flex items-center justify-center p-4 transform group-hover:-translate-y-1 transition-transform duration-500">
                                             <img
                                                 src={project.clientLogo.url}
-                                                alt="Client brand"
+                                                alt={`${project.clientName} brand logo`}
                                                 loading="lazy"
                                                 className="h-full w-full object-contain"
                                             />
@@ -286,7 +286,7 @@ const ProjectDetail = () => {
                                                 <div className="relative border-[3.5px] border-slate-800 rounded-t-lg overflow-hidden bg-slate-950 w-full shadow-xl">
                                                     <img
                                                         src={project.desktopImage.url}
-                                                        alt="Desktop layout"
+                                                        alt={`${project.projectName || project.title} desktop layout mockup`}
                                                         loading="lazy"
                                                         className="h-full w-full object-fill"
                                                     />
@@ -300,7 +300,7 @@ const ProjectDetail = () => {
                                                 <div className="relative rounded-xl overflow-hidden bg-slate-100 shadow-xl border border-slate-200 aspect-video">
                                                     <img
                                                         src={project.image}
-                                                        alt="Project cover"
+                                                        alt={`${project.projectName || project.title} project cover image`}
                                                         loading="lazy"
                                                         className="h-full w-full object-cover"
                                                     />
@@ -320,7 +320,7 @@ const ProjectDetail = () => {
                                                         <div className="aspect-[9/18]">
                                                             <img
                                                                 src={project.mobileImage.url}
-                                                                alt="Mobile layout"
+                                                                alt={`${project.projectName || project.title} mobile app layout mockup`}
                                                                 loading="lazy"
                                                                 className="h-full w-full object-fill"
                                                             />

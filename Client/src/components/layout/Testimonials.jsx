@@ -389,7 +389,7 @@ const Testimonials = () => {
                                                 <>
                                                     <img
                                                         src={URL.createObjectURL(formData.image)}
-                                                        alt="Preview"
+                                                        alt="Testimonial author profile picture preview"
                                                         loading="lazy"
                                                         className="h-full w-full object-cover"
                                                     />

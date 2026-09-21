@@ -189,7 +189,7 @@ const Hero = () => {
                             >
                                 <img
                                     src="https://github.com/sayyadazimhub.png"
-                                    alt="Sayyad Azim GitHub"
+                                    alt="Sayyad Azim GitHub Profile Picture - MERN Stack Developer"
                                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500/20 to-transparent mix-blend-overlay pointer-events-none"></div>

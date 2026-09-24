@@ -11,8 +11,8 @@ const Home = () => {
     return (
         <div>
             <Helmet>
-                <title>Full-Stack MERN Developer in Hyderabad | Sayyad Azim</title>
-                <meta name="description" content="Portfolio of Sayyad Azim, a Full-Stack MERN Developer based in Hyderabad specializing in React, Node.js, and MongoDB." />
+                <title>Sayyad Azim | Full-Stack MERN Developer based in Hyderabad</title>
+                <meta name="description" content="Sayyad Azim is an experienced full-stack MERN developer based in Hyderabad. View scalable web applications and platforms developed using JS and Node." />
                 <link rel="canonical" href="https://azim-sayyad-portfolio.vercel.app/" />
             </Helmet>
             <Hero />

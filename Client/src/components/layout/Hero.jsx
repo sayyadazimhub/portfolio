@@ -117,7 +117,7 @@ const Hero = () => {
                                 </svg>
                             </span>
                         </h1>
-                        <h2 className="sr-only">MERN Stack Full-Stack Developer in Hyderabad</h2>
+                        <h2 className="sr-only">Experienced Full-Stack MERN developer based in Hyderabad, specializing in scalable web applications and platforms developed using JS.</h2>
 
                         {/* Skill/Role Banner */}
                         <div
@@ -134,7 +134,7 @@ const Hero = () => {
                         <p
                             className="text-slate-800 font-medium max-w-xl mb-10 text-base sm:text-lg leading-relaxed"
                         >
-                            I am Sayyad Azim, a Full-Stack MERN Developer based in Hyderabad, India. I specialize in building scalable web applications with React, Node.js, Express, and MongoDB. I engineer robust digital solutions focusing on modern architectures and seamless user experiences. Let's build something extraordinary.
+                            I am Sayyad Azim, an experienced full-stack MERN developer based in Hyderabad, India. I specialize in building scalable web applications and platforms developed using JS, React, Node.js, and MongoDB. I engineer robust digital solutions focusing on modern architectures and seamless user experiences. Let's build something extraordinary.
                         </p>
 
                         {/* CTA Buttons & Social Links */}
